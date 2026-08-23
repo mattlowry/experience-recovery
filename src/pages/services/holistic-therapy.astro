@@ -1,15 +1,67 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Does holistic therapy replace medical detox?",
+    a: "No. Movement, mindfulness, nutrition, and time outdoors support a body in withdrawal. They do not replace physician-directed detox, nursing observation, or individual therapy.",
+  },
+];
 ---
-<Base title="Holistic Therapy in Addiction Treatment" description="Movement, mindfulness, nutrition, and outdoor time as supports for medical detox and residential treatment in Santa Ana — not a substitute for clinical care." path="/services/holistic-therapy/" keywords="holistic therapy rehab Orange County, yoga mindfulness addiction treatment Santa Ana">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / Holistic therapy</p>
-    <h1>Holistic supports</h1>
-    <p class="lede">Bodies in withdrawal need food, sleep, and movement. Holistic programming here supports medical and clinical work. It does not replace it, and we will not sell it as a cure.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>The courtyard, garden, and common rooms you see in our campus photos are where some of that happens. Exercise, mindfulness, and time outside are scheduled around groups and medical needs — not instead of them.</p>
-  </div></section>
+
+<Base
+  title="Holistic Therapy in Addiction Treatment"
+  description="Holistic therapy in Orange County at Experience Recovery — yoga, meditation, breathwork, nutrition, and outdoor time as supports for medical detox and residential treatment."
+  path="/services/holistic-therapy/"
+  keywords="holistic therapy rehab Orange County, yoga mindfulness addiction treatment Santa Ana, breathwork recovery"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services/" },
+    { name: "Holistic therapy", path: "/services/holistic-therapy/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / Holistic therapy</p>
+      <p class="kicker">Services</p>
+      <h1>Holistic therapy in Orange County, CA</h1>
+      <p class="lede">Bodies in withdrawal need food, sleep, and movement. Holistic programming here supports medical and clinical work. It does not replace it, and we will not sell it as a cure.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What is holistic therapy?</h2>
+      <p>An integrative approach that treats the person — mind, body, and, if it matters to them, spirit — rather than a toxicology screen alone. On this campus that means scheduled supports around groups and medical needs, not instead of them.</p>
+      <h2>How it works here</h2>
+      <ul>
+        <li><strong>Mind</strong> — trauma, depression, and anxiety sit underneath a lot of use. Yoga, meditation, fitness, and breathwork are tools for that load.</li>
+        <li><strong>Body</strong> — nutrition, sleep, and physical activity after a body has been run on a substance.</li>
+        <li><strong>Spirit</strong> — meaning, journaling, and quiet, when the person wants that language. We do not require a religious frame.</li>
+      </ul>
+      <h2>Types of holistic therapies we offer</h2>
+      <p>The program’s own materials name these supports. Availability on a given week follows staffing and medical status:</p>
+      <ul>
+        <li>Yoga and meditation</li>
+        <li>Breathwork</li>
+        <li>Exercise and time outdoors (including the courtyard and garden)</li>
+        <li>Nutrition support</li>
+        <li>Art and music when scheduled</li>
+        <li>Acupuncture and massage when those providers are on the calendar</li>
+      </ul>
+      <h2>How it is incorporated into treatment</h2>
+      <p>During detox, the medical team comes first. Gentle movement and rest are used when they are safe. In <a href="/programs/residential/">residential treatment</a>, holistic groups sit on the same calendar as CBT, skills, and individual therapy. Aftercare planning can include a gym, a meeting, or a therapist — not a promise that yoga will hold sobriety by itself.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

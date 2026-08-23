@@ -1,23 +1,100 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "What is Experience Recovery’s clinical approach?",
+    a: "Addiction is treated as a medical and clinical condition. Withdrawal management uses physician-directed protocols, a history and physical, and CIWA or COWS when those scales fit. Residential treatment teaches skills for cravings and life without the substance, with MAT extended when clinically needed. We do not guarantee outcomes.",
+  },
+  {
+    q: "Do you use ASAM Criteria?",
+    a: "Yes. Level-of-care decisions — detox versus residential — use the American Society of Addiction Medicine’s criteria, plus the history and physical on arrival. Not a website quiz.",
+  },
+];
 ---
 
-<Base title="Our Approach to Treatment" description="How Experience Recovery treats substance use: medical detox, evidence-informed residential therapy, trauma-aware care, and ASAM-aligned level-of-care decisions in Santa Ana." path="/about-us/our-approach/" keywords="Experience Recovery approach, evidence based rehab Orange County, ASAM detox residential">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / Approach</p>
-    <h1>How we work</h1>
-    <p class="lede">Addiction is treated as a medical and clinical condition. That means protocols, documentation, and humility about what a website can promise. We do not guarantee outcomes.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <h2>Mission</h2>
-    <p>Ethical, professional healthcare for individuals and families. We intend to be a straightforward ally on the path into treatment — including when the right next step is not this campus.</p>
-    <h2>Clinical frame</h2>
-    <p>Withdrawal management in a residential setting: history and physical, physician-directed protocols, CIWA and COWS when indicated, nursing observation, and a planned step into residential treatment. Residential care teaches skills for cravings and life without the substance, with MAT extended when clinically needed.</p>
-    <h2>Whole-person supports</h2>
-    <p>Emotional, social, physical, and occupational recovery matter. We will not dress that list up as eight branded “wellness pillars.” The point is that a person is more than a toxicology screen.</p>
-    <h2>Payers and documentation</h2>
-    <p>Insurance companies review medical necessity. We document because good notes protect patients and make concurrent review possible. That is part of ethical care in a PPO environment, not a side hustle.</p>
-  </div></section>
+<Base
+  title="Our Approach to Treatment"
+  description="How Experience Recovery treats substance use: medical detox, evidence-informed residential therapy, trauma-aware care, and ASAM-aligned level-of-care decisions in Santa Ana."
+  path="/about-us/our-approach/"
+  keywords="Experience Recovery approach, evidence based rehab Orange County, ASAM detox residential, CIWA COWS"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about-us/" },
+    { name: "Our approach", path: "/about-us/our-approach/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / Approach</p>
+      <p class="kicker">Clinical frame</p>
+      <h1>How we work</h1>
+      <p class="lede">Addiction is treated as a medical and clinical condition. That means protocols, documentation, and humility about what a website can promise. We do not guarantee outcomes.</p>
+      <nav class="jump" aria-label="On this page">
+        <a href="#mission">Mission</a>
+        <a href="#detox">Withdrawal management</a>
+        <a href="#residential">Residential</a>
+        <a href="#whole-person">Whole person</a>
+        <a href="#payers">Payers</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="mission">
+    <div class="wrap prose">
+      <h2>Mission</h2>
+      <p>Ethical, professional healthcare for individuals and families. We intend to be a straightforward ally on the path into treatment — including when the right next step is not this campus.</p>
+      <h2>Vision</h2>
+      <p>To empower the people we serve and to run an organization that treats addiction and other behavioral health disorders as serious healthcare — not a brochure product.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="detox">
+    <div class="wrap prose">
+      <h2>Withdrawal management</h2>
+      <p>Detox is provided in a residential setting: diagnostic determination, an individual withdrawal plan, psychiatric consultation if needed, medication education, counseling, referral, and discharge planning. Services are provided by licensed or certified clinicians and medical professionals.</p>
+      <p>On admission, a licensed healthcare provider completes a history and physical. The substances used, route, dose, time since last use, and whether intoxication is waxing or waning all matter. When multiple substances have been used, the effects of each are considered. Protocols are physician-directed. We monitor withdrawal with CIWA and COWS when those scales fit.</p>
+      <p>Detoxification can usually be accomplished in several days — often in the 3–10 day range cited in ASAM and CMS guidance — or until signs and symptoms can be managed at a less intensive level of care. Length depends on withdrawal risk, substances, medical status, and severity.</p>
+    </div>
+  </section>
+
+  <section class="section" id="residential">
+    <div class="wrap prose">
+      <h2>Residential treatment after detox</h2>
+      <p>Detoxification from opioids without a plan for cravings remains common and incomplete. Once someone is medically stable, they step into the residential program with the same team. Treatment focuses on recovery and the many ways it can be reached. Medication-assisted treatment may be extended across phases when clinically needed.</p>
+      <p>All services offered are intended to be evidence-informed and trauma-aware. We will not dress a trademarked curriculum as a guarantee.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="whole-person">
+    <div class="wrap prose">
+      <h2>Whole-person supports</h2>
+      <p>A person is more than a toxicology screen. The program’s own materials name these domains — we list them plainly, not as eight branded “wellness pillars”:</p>
+      <ul>
+        <li><strong>Emotional</strong> — skills for stress</li>
+        <li><strong>Social</strong> — connection and support</li>
+        <li><strong>Spiritual</strong> — meaning and purpose, if that matters to the person</li>
+        <li><strong>Physical</strong> — activity, diet, sleep, nutrition</li>
+        <li><strong>Intellectual</strong> — skills and learning</li>
+        <li><strong>Environmental</strong> — a setting that can support the work</li>
+        <li><strong>Financial</strong> — the real cost of treatment and the PPO already paid for</li>
+        <li><strong>Occupational</strong> — work, when returning to it is part of the plan</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="payers">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Payers and documentation</h2>
+        <p>Insurance companies review medical necessity. We document because good notes protect patients and make concurrent review possible. That is part of ethical care in a PPO environment, not a side hustle. We collect clinical information to track symptoms and to support utilization review. We do not publish outcome percentages on this website, and we do not guarantee low readmission rates.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

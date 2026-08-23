@@ -1,3 +1,53 @@
 ---
-return Astro.redirect("/programs/residential/", 301);
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Do you offer inpatient rehab in Orange County?",
+    a: "Yes — as residential treatment. People search “inpatient.” California licenses this live-in level as residential. Detox and the live-in program are on the same Santa Ana campus.",
+  },
+];
 ---
+
+<Base
+  title="Inpatient Program"
+  description="Inpatient / residential addiction treatment in Santa Ana after medically supervised detox. Daily therapy in a 24/7 structured environment. In-network PPO rehab."
+  path="/programs/inpatient/"
+  keywords="inpatient rehab Orange County, inpatient drug rehab Santa Ana, inpatient alcohol treatment California"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Programs", path: "/programs/" },
+    { name: "Inpatient", path: "/programs/inpatient/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Inpatient</p>
+      <p class="kicker">Programs</p>
+      <h1>Residential / inpatient treatment</h1>
+      <p class="lede">Experience Recovery offers medically supervised detox followed by structured residential treatment on campus in Santa Ana. People type “inpatient.” In our licensing, this live-in program is residential treatment — same bed, same team, same day.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <p>After detox, this is where the deeper clinical work happens: daily therapy, group programming, family involvement when timed, and aftercare planning in a 24/7 structured environment.</p>
+      <p>Read the full program on <a href="/programs/residential/">residential treatment</a> — that page is the complete description. This URL exists because it has been the inpatient address on this site.</p>
+      <ul>
+        <li><a href="/programs/detox/">Detox</a> first when withdrawal is unsafe</li>
+        <li><a href="/programs/residential/">Residential / inpatient</a> for the live-in clinical work</li>
+        <li><a href="/programs/family/">Family program</a> for partners and parents</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <FaqList items={faq} />
+    </div>
+  </section>
+  <CtaBand />
+</Base>

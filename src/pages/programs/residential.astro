@@ -1,19 +1,81 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Is residential the same as inpatient rehab?",
+    a: "On this campus, yes in practice. /programs/inpatient/ is the older URL for the same live-in program. In California licensing, the program after detox is residential treatment.",
+  },
+  {
+    q: "How long is residential treatment?",
+    a: "Payers often authorize in 30-, 60-, or 90-day windows. The right length is clinical — progress, medical necessity, and concurrent review — not a product you buy off a brochure.",
+  },
+];
 ---
 
-<Base title="Residential Treatment in Orange County" description="Live-in residential addiction treatment in Santa Ana after detox. Daily therapy, groups, family work, and aftercare planning. In-network PPO residential rehab." path="/programs/residential/" keywords="residential treatment Orange County, inpatient rehab Santa Ana, in network residential rehab California">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Residential</p>
-    <p class="kicker">Programs</p>
-    <h1>Residential treatment</h1>
-    <p class="lede">Detox is about getting safe. Residential is where there is enough time — and enough distance from daily triggers — to look at what is underneath.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Clients live on campus: a bed, shared common spaces, a structured day, and a peer community. Individual therapy, daily groups (CBT, skills, process, psychoeducation), family work when timed correctly, psychiatric care, and aftercare planning that starts early.</p>
-    <p>Length of stay is clinical, not a brochure number. Insurance authorization and progress both matter. We will not promise “30, 60, or 90” as a product. We will advocate for the time that is medically necessary.</p>
-    <p>The URL <a href="/programs/inpatient/">/programs/inpatient/</a> redirects here. In our licensing and in California practice, the live-in program after detox is residential treatment.</p>
-  </div></section>
+<Base
+  title="Residential Treatment in Orange County"
+  description="Live-in residential addiction treatment in Santa Ana after detox. Daily therapy, groups, family work, and aftercare planning. In-network PPO residential rehab."
+  path="/programs/residential/"
+  keywords="residential treatment Orange County, inpatient rehab Santa Ana, in network residential rehab California"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Programs", path: "/programs/" },
+    { name: "Residential", path: "/programs/residential/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Residential</p>
+      <p class="kicker">Programs</p>
+      <h1>Residential treatment</h1>
+      <p class="lede">Live on campus while doing the deeper clinical work — therapy, group, family sessions, and skills practice in a calmer environment than home. Detox is about getting safe. Residential is where there is enough time to look at what is underneath.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What residential is</h2>
+      <p>The level of care where the clinical work happens after withdrawal is managed. People live here: a bed, shared common spaces, a structured day, and a peer community.</p>
+      <h2>Who it’s for</h2>
+      <ul>
+        <li>People who have completed detox and need a structured environment to continue</li>
+        <li>People for whom going home is medically possible but environmentally risky — work stress, family stress, easy access to substances</li>
+        <li>People with significant trauma, grief, or co-occurring mental health concerns that need daily therapeutic contact</li>
+        <li>Anyone who needs distance from daily triggers to do the work</li>
+      </ul>
+      <h2>What residential includes</h2>
+      <ul>
+        <li>Living on campus with a structured day</li>
+        <li>Individual therapy with a primary clinician (typically one to two times per week at this stage)</li>
+        <li>Daily groups — CBT, DBT skills, process, psychoeducation, trauma-informed work</li>
+        <li>Family therapy and the <a href="/programs/family/">family program</a> when timed</li>
+        <li>Psychiatric care and medication management when indicated</li>
+        <li>Movement, mindfulness, and time outdoors</li>
+        <li>Aftercare planning that starts early, not the week of discharge</li>
+      </ul>
+      <h2>How long people stay</h2>
+      <p>Residential often runs in 30-, 60-, or 90-day authorization windows. The right length is clinical, not preset. We adjust based on progress, insurance authorization, and what the team is seeing. We will advocate for medically necessary time. We will not guarantee an outcome based on a number of days.</p>
+      <h2>What progress can look like</h2>
+      <p>Sleep and appetite returning, then the ability to talk about hard things without shutting down, then — often in the later weeks — a clearer picture of what happened and why. Recovery is not linear. Those markers are common, not a promise.</p>
+      <h2>What comes next</h2>
+      <p>Discharge planning begins early so the handoff is a real next step — IOP, outpatient therapy, recovery housing — not a printed list of phone numbers. See <a href="/services/relapse-prevention/">relapse prevention</a>.</p>
+      <p>The URL <a href="/programs/inpatient/">/programs/inpatient/</a> is the same live-in program in older language.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Insurance and cost</h2>
+        <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Benefits are verified before admission.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

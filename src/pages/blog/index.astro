@@ -1,26 +1,90 @@
 ---
 import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
 import { posts } from "../../data/blog";
+import { legacyPosts } from "../../data/legacy-blog";
+
+const [featured, ...rest] = posts;
+const redirected = new Set([
+  "what-is-xanax-1",
+  "what-is-alcoholics-anonymous-2",
+  "the-war-on-drugs",
+  "war-on-drugs",
+  "side-effects-opioids",
+  "what-are-the-side-effects-of-opioids",
+  "people-use-opioids",
+  "what-kind-of-drugs-are-opioids",
+  "what-is-opioid-addiction",
+  "prescription-opioids-addiction",
+  "relapse-prevention-strategies",
+]);
+const archive = legacyPosts.filter(
+  (p) => !redirected.has(p.slug) && !posts.some((cur) => cur.slug === p.slug),
+);
 ---
 
 <Base
-  title="Recovery Blog"
+  title="Recovery Blog | Insurance, Detox & Dual Diagnosis"
   description="Guides on in-network PPO rehab, medical detox, dual diagnosis, and insurance verification in Orange County and Southern California."
   path="/blog/"
-  keywords="Orange County rehab blog, PPO insurance detox, in network treatment Southern California"
+  keywords="Orange County rehab blog, PPO insurance detox, in network treatment Southern California, Anthem TRICARE rehab guide"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog/" },
+  ]}
+  itemList={posts.map((p) => ({ name: p.title, path: `/blog/${p.slug}/` }))}
 >
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / Blog</p>
-    <h1>Notes from the work</h1>
-    <p class="lede">Insurance, detox, and clinical questions people in Southern California actually search. Older thin posts from the previous site are redirected to these pages where they duplicated each other.</p>
-  </div></section>
-  <section class="section"><div class="wrap grid-2">
-    {posts.map((post) => (
-      <article class="card">
-        <p class="kicker">{post.category} · {post.date}</p>
-        <h2><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
-        <p>{post.description}</p>
-      </article>
-    ))}
-  </div></section>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Blog</p>
+      <p class="kicker">Notes from the work</p>
+      <h1>Insurance, detox, and the questions people actually type</h1>
+      <p class="lede">Written for Southern California searches — PPO verification, alcohol and opioid detox, dual diagnosis, TRICARE. Older articles keep their original URLs so existing search listings do not 404. Obvious duplicates redirect to the stronger page on the same topic.</p>
+    </div>
+  </section>
+
+  {featured && (
+    <section class="section">
+      <div class="wrap">
+        <a class="card index-card featured-post" href={`/blog/${featured.slug}/`}>
+          <img src="/images/brand/editorial-verification.jpg" alt="" width="800" height="600" />
+          <div class="copy">
+            <p class="kicker">Featured · {featured.category} · {featured.date}</p>
+            <h2>{featured.title}</h2>
+            <p>{featured.description}</p>
+            <span class="more">Read →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <section class="section section-alt">
+    <div class="wrap grid-2">
+      {rest.map((post) => (
+        <a class="card index-card" href={`/blog/${post.slug}/`}>
+          <p class="kicker">{post.category} · {post.date}</p>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+          <span class="more">Read →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>Archive — original URLs kept</h2>
+      <p class="lede">These articles already ranked or were linked. We kept the slugs and the subject matter so the switch does not drop them.</p>
+      <div class="grid-2" style="margin-top:1.2rem">
+        {archive.map((post) => (
+          <a class="card index-card" href={`/blog/${post.slug}/`}>
+            <p class="kicker">{post.date}</p>
+            <h3>{post.title}</h3>
+            <span class="more">Read →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBand title="Have the card in your hand?" text="Most of these articles end the same way: verify benefits before you drive. We will do that on the call." />
 </Base>

@@ -3,12 +3,39 @@ import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
 import FaqList from "../../components/FaqList.astro";
 import { posts } from "../../data/blog";
+import { legacyPosts } from "../../data/legacy-blog";
 
 export function getStaticPaths() {
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  const redirected = new Set([
+    "what-is-xanax-1",
+    "what-is-alcoholics-anonymous-2",
+    "the-war-on-drugs",
+    "war-on-drugs",
+    "side-effects-opioids",
+    "what-are-the-side-effects-of-opioids",
+    "people-use-opioids",
+    "what-kind-of-drugs-are-opioids",
+    "what-is-opioid-addiction",
+    "prescription-opioids-addiction",
+    "relapse-prevention-strategies",
+  ]);
+
+  return [
+    ...posts.map((post) => ({
+      params: { slug: post.slug },
+      props: { post, source: "primary" as const },
+    })),
+    ...legacyPosts
+      .filter((post) => !redirected.has(post.slug) && !posts.some((p) => p.slug === post.slug))
+      .map((post) => ({
+        params: { slug: post.slug },
+        props: { post, source: "archive" as const },
+      })),
+  ];
 }
 
-const { post } = Astro.props;
+const { post, source } = Astro.props;
+const faqs = "faqs" in post ? post.faqs : undefined;
 ---
 
 <Base
@@ -17,22 +44,31 @@ const { post } = Astro.props;
   path={`/blog/${post.slug}/`}
   type="article"
   keywords={post.keywords}
-  faq={post.faqs}
+  faq={faqs}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog/" },
+    { name: post.title, path: `/blog/${post.slug}/` },
+  ]}
 >
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / {post.title}</p>
-    <p class="kicker">{post.category} · {post.date}</p>
-    <h1>{post.title}</h1>
-    <p class="lede">{post.description}</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <Fragment set:html={post.body} />
-    {post.faqs && post.faqs.length > 0 && (
-      <>
-        <h2>Questions</h2>
-        <FaqList items={post.faqs} />
-      </>
-    )}
-  </div></section>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / {post.title}</p>
+      <p class="kicker">{post.category} · {post.date}{source === "archive" ? " · Archive" : ""}</p>
+      <h1>{post.title}</h1>
+      <p class="lede">{post.description}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <Fragment set:html={post.body} />
+      {faqs && faqs.length > 0 && (
+        <>
+          <h2>Questions</h2>
+          <FaqList items={faqs} />
+        </>
+      )}
+    </div>
+  </section>
   <CtaBand />
 </Base>

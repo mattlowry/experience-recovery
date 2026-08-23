@@ -1,15 +1,70 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Do you treat first responders for addiction in Orange County?",
+    a: "Yes. Fire, EMS, law enforcement, and other public-safety professionals use the same licensed detox and residential campus. Confidentiality and the card — often a municipal PPO or TRICARE — are handled on the first call.",
+  },
+  {
+    q: "Is this a separate psychiatric hospital for first responders?",
+    a: "No. This is a DHCS-licensed detox and residential substance-use program that treats first responders, including trauma-related symptoms that travel with use. We do not operate a separate locked psychiatric hospital.",
+  },
+];
 ---
-<Base title="First Responders Addiction Treatment" description="Detox and residential treatment for first responders in Orange County. Trauma-aware care and in-network verification for the plans first-responder families actually carry." path="/services/first-responders/" keywords="first responder rehab Orange County, firefighter police EMT alcohol treatment California">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / First responders</p>
-    <h1>First responders track</h1>
-    <p class="lede">Shift work, trauma exposure, and a culture that punishes asking for help. Treatment still has to be medically competent and billable to the plan on the card — often a PPO through a department, union, or municipality.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>We verify Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE. If your department uses a different administrator, bring the card. Confidentiality is explained on the first call so you know what we must report and what we do not.</p>
-  </div></section>
+
+<Base
+  title="First Responders Addiction Treatment"
+  description="First responders track at Experience Recovery in Santa Ana — detox and residential treatment for fire, EMS, and law enforcement. Trauma-aware care and in-network PPO / TRICARE verification."
+  path="/services/first-responders/"
+  keywords="first responder rehab Orange County, firefighter police EMT alcohol treatment California, TRICARE first responder detox"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services/" },
+    { name: "First responders", path: "/services/first-responders/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / First responders</p>
+      <p class="kicker">Services</p>
+      <h1>First responders</h1>
+      <p class="lede">Shift work, trauma exposure, and a culture that punishes asking for help. Treatment still has to be medically competent and billable to the plan on the card — often a PPO through a department, union, or municipality, or TRICARE.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>A program that understands the job</h2>
+      <p>Public-safety work leaves injuries that do not show on a scan. Seeking behavioral health care can feel like a career risk. We explain confidentiality on the first call: what we must report, and what we do not. Cultural competence here means we have treated first responders and military-connected families — not that we borrowed another brand’s “separate unit” copy.</p>
+      <h2>What we treat</h2>
+      <ul>
+        <li>Alcohol and drug use, including after-shift drinking that has become dependence</li>
+        <li>Post-traumatic stress symptoms that travel with use</li>
+        <li>Depression and anxiety</li>
+        <li>Sleep wrecked by nights and overtime</li>
+      </ul>
+      <p>This is a licensed substance-use program. If someone needs a locked psychiatric bed and no SUD presentation, we will say so.</p>
+      <h2>How care is delivered</h2>
+      <ul>
+        <li>Primary clinicians who can talk about the job without making it a novelty</li>
+        <li>Present-focused, trauma-informed curricula (including Seeking Safety when it fits) that treat trauma and substance use as connected</li>
+        <li>Medication-assisted treatment when clinically appropriate — discussed with the person, and with command only when the person authorizes that contact or when the law requires it</li>
+        <li>Family systems work when it is timed after detox</li>
+      </ul>
+      <h2>Insurance</h2>
+      <p>We verify Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE. If the department uses a different administrator, bring the card.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

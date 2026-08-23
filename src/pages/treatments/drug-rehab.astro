@@ -1,29 +1,99 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
 const faq = [
-  { q: "Is drug rehab in Orange County covered by PPO insurance?", a: "Most commercial PPO plans include a substance use benefit that can cover medically necessary detox and residential treatment at an in-network facility. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE." },
-  { q: "Do you treat fentanyl and heroin?", a: "Yes. Opioid dependence — including fentanyl, heroin, and prescription opioids — is a core part of our medical detox and residential work. MAT is used when clinically appropriate." },
+  {
+    q: "What is drug rehab at Experience Recovery?",
+    a: "Medically supervised detox when there is physical dependence, then residential treatment on the same Santa Ana campus. We treat opioids (including fentanyl and heroin), stimulants, benzodiazepines, and polysubstance use.",
+  },
+  {
+    q: "Is drug rehab in Orange County covered by PPO insurance?",
+    a: "Most commercial PPO plans include a substance use benefit that can cover medically necessary detox and residential treatment at an in-network facility. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. We verify before admission.",
+  },
+  {
+    q: "Do you treat fentanyl and heroin?",
+    a: "Yes. Opioid dependence — including fentanyl, heroin, and prescription opioids — is a core part of medical detox and residential work. Medication-assisted treatment is used when clinically appropriate.",
+  },
 ];
 ---
 
-<Base title="Drug Rehab in Orange County" description="In-network drug rehab in Santa Ana for opioids, stimulants, benzodiazepines, and polysubstance use. Detox and residential treatment for Southern California PPO plans." path="/treatments/drug-rehab/" keywords="drug rehab Orange County, fentanyl detox Santa Ana, in network drug rehab Southern California" faq={faq}>
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Drug rehab</p>
-    <p class="kicker">Treatments</p>
-    <h1>Drug rehab in Orange County</h1>
-    <p class="lede">Evidence-informed drug rehabilitation in Santa Ana, with detox and residential treatment delivered by the same clinical team. Built for the substances people here actually use — including fentanyl — and for the PPO cards they actually carry.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <h2>What this program treats</h2>
-    <p>Opioids (heroin, fentanyl, prescription pain medications), stimulants (cocaine, methamphetamine, prescription stimulants), benzodiazepines, and mixed use. Dual-diagnosis concerns — anxiety, depression, PTSD, bipolar disorder — are assessed in the same admission.</p>
-    <h2>Where people start</h2>
-    <ul>
-      <li><a href="/programs/detox/">Detox</a> when there is physical dependence or withdrawal risk</li>
-      <li><a href="/programs/residential/">Residential</a> for structured clinical work after stabilization</li>
-    </ul>
-    <h2>Insurance</h2>
-    <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Verify before you travel. See <a href="/insurance/">in-network plans</a>.</p>
-  </div></section>
+<Base
+  title="Drug Rehab in Orange County"
+  description="Evidence-informed drug rehab in Santa Ana for opioids, stimulants, benzodiazepines, and polysubstance use. In-network detox and residential treatment for Southern California PPO plans."
+  path="/treatments/drug-rehab/"
+  keywords="drug rehab Orange County, fentanyl detox Santa Ana, in network drug rehab Southern California, opioid stimulant benzo rehab"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Treatments", path: "/treatments/" },
+    { name: "Drug rehab", path: "/treatments/drug-rehab/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Drug rehab</p>
+      <p class="kicker">Treatments</p>
+      <h1>Drug rehab in Orange County</h1>
+      <p class="lede">Evidence-informed drug rehabilitation in Santa Ana, with detox and residential treatment delivered by the same clinical team. Built for the substances people here actually use — including fentanyl — and for the PPO cards they actually carry.</p>
+      <nav class="jump" aria-label="On this page">
+        <a href="#what-is">What addiction is</a>
+        <a href="#treat">What we treat</a>
+        <a href="#how">How treatment works</a>
+        <a href="#approach">Clinical approach</a>
+        <a href="#insurance">Insurance</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="what-is">
+    <div class="wrap prose">
+      <h2>What is drug addiction?</h2>
+      <p>Drug addiction is a chronic brain condition marked by compulsive drug-seeking despite harm. Brain structure and function change in ways that produce cravings and make “just stopping” an unreliable plan. Genetic, environmental, and psychological factors raise vulnerability — family history, early exposure, untreated mental health conditions, trauma. It is a medical condition that responds to professional treatment, not a moral score.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="treat">
+    <div class="wrap prose">
+      <h2>What we treat</h2>
+      <ul>
+        <li><strong>Opioids</strong> — heroin, fentanyl, oxycodone, hydrocodone, and other prescription opioids. See <a href="/detox/heroin-detox/">heroin / opioid detox</a>.</li>
+        <li><strong>Stimulants</strong> — cocaine, methamphetamine, and prescription stimulants</li>
+        <li><strong>Benzodiazepines</strong> — Xanax, Klonopin, Ativan, Valium. Withdrawal requires a medical taper, not a weekend at home.</li>
+        <li><strong>Polysubstance use</strong> — more than one substance at once. Tell the truth about everything in the system.</li>
+      </ul>
+      <p>Co-occurring anxiety, depression, PTSD, and bipolar disorder are assessed in the same admission.</p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap prose">
+      <h2>How treatment works at Experience Recovery</h2>
+      <p>The right starting point depends on what you’re using, how often, and what’s happening at home and at work. Admissions walks through that assessment on the first call. Most people begin in one of these settings — all on the Santa Ana campus:</p>
+      <ul>
+        <li><a href="/programs/detox/">Detox</a> — medically supervised withdrawal when there is physical dependence</li>
+        <li><a href="/programs/inpatient/">Inpatient / residential</a> — 24/7 structured care after detox, when relapse risk is highest. In our licensing this live-in program is residential treatment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="approach">
+    <div class="wrap prose">
+      <h2>Our clinical approach</h2>
+      <p>Therapies with a research base: cognitive-behavioral therapy, motivational interviewing, group and family work, and medication-assisted treatment when clinically appropriate. We integrate co-occurring mental health care rather than treating addiction in isolation. Related: <a href="/services/cognitive-behavioral-therapy/">CBT</a>, <a href="/services/relapse-prevention/">relapse prevention</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="insurance">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Insurance and cost</h2>
+        <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Benefits are verified before you commit. Website content is not a contract of payment.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

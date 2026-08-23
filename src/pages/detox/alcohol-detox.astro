@@ -1,15 +1,81 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Why is it not safe to detox from alcohol at home?",
+    a: "Alcohol withdrawal can include seizures and delirium tremens. Home also still has alcohol in it. If someone is seizing, unconscious, or severely confused, call 911.",
+  },
+  {
+    q: "What medications are used in alcohol detox?",
+    a: "Physician-directed protocols often include benzodiazepines for withdrawal, and may later include naltrexone, acamprosate, or disulfiram as part of ongoing alcohol treatment. Doses are individualized. This page is not a prescription.",
+  },
+];
 ---
-<Base title="Alcohol Detox in Santa Ana" description="Medically supervised alcohol detox in Orange County. In-network PPO withdrawal management. Do not detox from daily drinking alone if withdrawal has been dangerous before." path="/detox/alcohol-detox/" keywords="alcohol detox Santa Ana, alcohol detox Orange County, in network alcohol detox PPO">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / Detox / Alcohol</p>
-    <h1>Alcohol detox</h1>
-    <p class="lede">Medically supervised withdrawal from alcohol at our Santa Ana campus. Seizure risk is why this is a medical service, not a long weekend.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>If someone is seizing, unconscious, or severely confused, call 911. If you are planning detox and drink daily, call admissions. We verify PPO benefits and time arrival. Related: <a href="/treatments/alcohol-rehab/">alcohol rehab</a> and <a href="/programs/detox/">detox program</a>.</p>
-  </div></section>
+
+<Base
+  title="Alcohol Detox in Santa Ana"
+  description="Medically supervised alcohol detox in Orange County. Withdrawal timeline, why home detox is unsafe, and in-network PPO withdrawal management in Santa Ana."
+  path="/detox/alcohol-detox/"
+  keywords="alcohol detox Santa Ana, alcohol detox Orange County, alcohol withdrawal symptoms, in network alcohol detox PPO"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Detox", path: "/detox/" },
+    { name: "Alcohol detox", path: "/detox/alcohol-detox/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/detox/">Detox</a> / Alcohol</p>
+      <p class="kicker">Detox</p>
+      <h1>Alcohol detox in Orange County</h1>
+      <p class="lede">Medically supervised withdrawal from alcohol at our Santa Ana campus. Seizure risk is why this is a medical service, not a long weekend.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Orange County alcohol addiction statistics</h2>
+      <p>Alcohol-related deaths in Orange County have risen since 2012, with a further spike around 2019–2020. County analyses have found higher hospitalization and death rates in some coastal and south-county communities, and higher rates among men. This campus exists because that is a local medical problem, not a rare one.</p>
+      <h2>What is alcohol detox?</h2>
+      <p>Detoxification is the medically supervised removal of alcohol and the management of withdrawal. It starts with stopping drinking under observation, then stabilization, then a planned step into residential treatment. Signs that drinking has become a disorder include craving, using in unsafe situations, drinking more for the same effect, and a day organized around alcohol.</p>
+      <h2>How alcohol detox works here</h2>
+      <ol>
+        <li><strong>Initial evaluation</strong> — a physician assesses last drink, amount, prior seizures or DTs, other substances, and medical history.</li>
+        <li><strong>Medication and stabilization</strong> — 24/7 monitoring. In the first seventy-two hours, checks are frequent (the program specifies every thirty minutes in that window).</li>
+        <li><strong>Continued treatment</strong> — once withdrawal is manageable, <a href="/programs/residential/">residential treatment</a> on the same campus.</li>
+      </ol>
+      <h2>Common alcohol withdrawal symptoms</h2>
+      <p>Mild symptoms can start around six hours after the last drink: headache, vomiting, sweating, anxiety. Over 48–72 hours, hallucinations, fever, tachycardia, and delirium tremens can appear. That is why this is not a home project.</p>
+      <h2>Why home detox is unsafe</h2>
+      <p>Complications can require an emergency department. The house still has alcohol. Shame is not a protocol.</p>
+      <h2>Medications that may be used</h2>
+      <ul>
+        <li><strong>Benzodiazepines</strong> — to manage withdrawal under a taper. They are themselves dependence-forming; doses are physician-directed.</li>
+        <li><strong>Naltrexone</strong> — may be used in ongoing alcohol treatment when opioids are not in the picture.</li>
+        <li><strong>Acamprosate</strong> — sometimes used after withdrawal to support abstinence.</li>
+        <li><strong>Disulfiram</strong> — creates a sick reaction if alcohol is consumed. Only when that contract makes clinical sense.</li>
+      </ul>
+      <p>This list is educational. It is not a promise that you will receive every medication.</p>
+      <h2>Alcohol detoxification timeline</h2>
+      <ul>
+        <li><strong>5–10 hours</strong> — blood pressure changes, sweating, vomiting, irritability, sleep disruption</li>
+        <li><strong>12–24 hours</strong> — hallucinations can begin</li>
+        <li><strong>24–48 hours</strong> — seizure risk; symptoms often peak</li>
+        <li><strong>72 hours to several days</strong> — acute symptoms usually ease; some people have protracted symptoms for weeks</li>
+      </ul>
+      <p>Related: <a href="/treatments/alcohol-rehab/">alcohol rehab</a>, <a href="/programs/detox/">detox program</a>, <a href="/blog/alcohol-detox-orange-county-ppo/">PPO coverage for alcohol detox</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

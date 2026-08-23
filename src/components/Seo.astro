@@ -9,6 +9,9 @@ interface Props {
   image?: string;
   keywords?: string;
   faq?: { q: string; a: string }[];
+  breadcrumbs?: { name: string; path: string }[];
+  itemList?: { name: string; path: string }[];
+  howTo?: { name: string; description?: string; steps: { name: string; text: string }[] };
   noindex?: boolean;
 }
 
@@ -20,6 +23,9 @@ const {
   image = "/images/campus/experience-recovery-frontdoors1.jpg",
   keywords,
   faq = [],
+  breadcrumbs = [],
+  itemList = [],
+  howTo,
   noindex = false,
 } = Astro.props;
 
@@ -118,6 +124,50 @@ const faqSchema =
         })),
       }
     : null;
+
+const crumbSchema =
+  breadcrumbs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: new URL(crumb.path, site.url).href,
+        })),
+      }
+    : null;
+
+const listSchema =
+  itemList.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: fullTitle,
+        itemListElement: itemList.map((item, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: item.name,
+          url: new URL(item.path, site.url).href,
+        })),
+      }
+    : null;
+
+const howToSchema = howTo
+  ? {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: howTo.name,
+      description: howTo.description || description,
+      step: howTo.steps.map((step, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: step.name,
+        text: step.text,
+      })),
+    }
+  : null;
 ---
 
 <title>{fullTitle}</title>
@@ -144,3 +194,6 @@ const faqSchema =
 <script type="application/ld+json" set:html={JSON.stringify(org)} />
 <script type="application/ld+json" set:html={JSON.stringify(webpage)} />
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{crumbSchema && <script type="application/ld+json" set:html={JSON.stringify(crumbSchema)} />}
+{listSchema && <script type="application/ld+json" set:html={JSON.stringify(listSchema)} />}
+{howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}

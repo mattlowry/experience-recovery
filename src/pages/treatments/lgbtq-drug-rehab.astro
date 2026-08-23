@@ -1,18 +1,59 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Do you offer LGBTQ-affirming drug rehab in Orange County?",
+    a: "Yes. Detox and residential treatment are delivered on the Santa Ana campus in an environment built for safety, not a one-hour special topic. Identity is not an add-on.",
+  },
+  {
+    q: "Is being LGBTQ the cause of addiction?",
+    a: "No. Minority stress — stigma, family rejection, discrimination — raises risk for substance use and for co-occurring depression, anxiety, and PTSD. The substance use is still treated as a medical and clinical condition.",
+  },
+];
 ---
 
-<Base title="LGBTQ Drug Rehab in Orange County" description="LGBTQ-affirming drug and alcohol rehab in Santa Ana. Trauma-informed detox and residential treatment, in-network with major Southern California PPO plans." path="/treatments/lgbtq-drug-rehab/" keywords="LGBTQ rehab Orange County, LGBTQ drug rehab Santa Ana, affirming residential treatment California">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / LGBTQ drug rehab</p>
-    <p class="kicker">Treatments</p>
-    <h1>LGBTQ-affirming rehab in Orange County</h1>
-    <p class="lede">Trauma-informed clinical work in an environment built for safety, not tolerance-as-a-poster. Same medical detox and residential structure. Different assumption about who is in the room.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>People come here from across Southern California when a general program has already made them do extra labor — correcting pronouns, hiding a relationship, or sitting through groups that treat their life as a special topic. We will not claim we are the only affirming program in the region. We will say that identity is not an add-on hour on Friday.</p>
-    <p>In-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Calls are confidential.</p>
-  </div></section>
+<Base
+  title="LGBTQ Drug Rehab"
+  description="LGBTQ-affirming drug and alcohol rehab in Santa Ana. Trauma-informed detox and residential treatment, in-network with major Southern California PPO plans."
+  path="/treatments/lgbtq-drug-rehab/"
+  keywords="LGBTQ rehab Orange County, LGBTQ drug rehab Santa Ana, affirming residential treatment California"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Treatments", path: "/treatments/" },
+    { name: "LGBTQ drug rehab", path: "/treatments/lgbtq-drug-rehab/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / LGBTQ drug rehab</p>
+      <p class="kicker">Treatments</p>
+      <h1>LGBTQ drug rehab in Orange County, CA</h1>
+      <p class="lede">Trauma-informed clinical work in an environment built for safety, not tolerance-as-a-poster. Same medical detox and residential structure. Different assumption about who is in the room.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Drug addiction statistics in the LGBTQ community</h2>
+      <p>NIDA has reported higher past-year marijuana and opioid use among sexual-minority adults than among heterosexual adults, and higher rates of co-occurring psychiatric disorders. Studies have also described higher depression and distress among lesbian, gay, and bisexual adults, and higher self-harm, depression, and eating-disorder risk among transgender youth compared with cisgender peers. Those figures are why affirming treatment exists. They are not a stereotype of every LGBTQ person.</p>
+      <h2>What to expect</h2>
+      <p>If withdrawal is underway, <a href="/programs/detox/">medical detox</a> provides 24/7 monitoring, medications when ordered, and a physician-directed plan for what comes next. <a href="/programs/residential/">Residential treatment</a> is a structured day of therapy, movement, and skills work without the substance. Family involvement and aftercare planning happen when they are clinically timed. We will not claim we are the only affirming program in Southern California. We will say that identity is not an add-on hour on Friday.</p>
+      <h2>Social stigma, minority stress, and dual diagnosis</h2>
+      <p>Substance use is not caused by being LGBTQ. Minority stress — bullying, job discrimination, family or religious rejection — is a documented risk. Psychology Today and others have used that term for the load of being stigmatized. Youth facing family rejection have been reported as 1.5 to 3.5 times more likely to use drugs. Addiction stigma then keeps people from calling.</p>
+      <p>Dual diagnosis here means we assess depression, PTSD, anxiety, and other co-occurring conditions in the same episode of care — through detox and residential — rather than parking the other diagnosis until “the addiction work is done.”</p>
+      <p>In-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Calls are confidential.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

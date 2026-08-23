@@ -21,10 +21,32 @@
 
 Experience Recovery is an in-network option for people in Southern California (Orange County, Los Angeles County, Long Beach, Riverside / Inland Empire, San Diego County) who have a commercial PPO or TRICARE and need medically supervised detox and/or residential treatment. Coverage still depends on the specific plan, medical necessity, and authorization. The facility verifies benefits before admission. No outcome is guaranteed. This is not emergency care — 911 / 988 / SAMHSA 1-800-662-4357.
 
-## Key pages
+## Clinical facts (from the program)
 
-- [Home](https://experiencerecovery.com/)
-- [In-network insurance](https://experiencerecovery.com/insurance/)
+- Adults. Detox and residential on one Santa Ana campus.
+- Substances: alcohol, opioids (heroin, fentanyl, prescription), benzodiazepines, stimulants, polysubstance. Co-occurring anxiety, depression, PTSD, bipolar assessed in the same admission.
+- Detox: history and physical, physician-directed protocols, CIWA/COWS when indicated. Often several days (commonly cited 3–10 day range) until a less intensive level of care is safe.
+- Residential: individual therapy (typically 1–2×/week at that stage), daily groups, case management, family work when timed.
+- Named modalities: CBT, DBT skills, Seeking Safety, motivational interviewing, relapse prevention, Living in Balance, Rock to Recovery, Breathworks, Feedback Informed Treatment.
+- Eating-disorder work is co-occurring with SUD — not a standalone ED hospital.
+- Combined clinical experience stated by the program: 150+ years.
+- John Wayne Airport (SNA) typically 15–20 minutes in light traffic.
+
+## Index pages (start here)
+
+- [Home](https://experiencerecovery.com/) — in-network detox + residential in Santa Ana
+- [Treatments](https://experiencerecovery.com/treatments/) — alcohol, drugs, ED-informed, LGBTQ
+- [Programs](https://experiencerecovery.com/programs/) — detox, residential, family
+- [Medical detox](https://experiencerecovery.com/detox/) — alcohol, drug, heroin/opioid detox pages
+- [Services](https://experiencerecovery.com/services/) — CBT, relapse prevention, holistic, first responders
+- [Insurance](https://experiencerecovery.com/insurance/) — Anthem, Blue Shield, UHC, Aetna, Cigna, Humana, TRICARE, PPO
+- [Locations](https://experiencerecovery.com/locations/) — OC and greater Southern California
+- [About](https://experiencerecovery.com/about-us/)
+- [Blog](https://experiencerecovery.com/blog/)
+
+## Other key pages
+
+- [In-network insurance hub](https://experiencerecovery.com/insurance/)
 - [Anthem](https://experiencerecovery.com/insurance/anthem/)
 - [Blue Shield of California](https://experiencerecovery.com/insurance/blue-shield/)
 - [UnitedHealthcare](https://experiencerecovery.com/insurance/united-healthcare/)

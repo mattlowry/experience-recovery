@@ -1,15 +1,86 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Does insurance cover heroin detox in Orange County?",
+    a: "Medically necessary opioid withdrawal management is commonly covered on commercial PPO plans at an in-network facility. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. We verify before admission.",
+  },
+  {
+    q: "Do you use medication-assisted treatment for heroin and fentanyl?",
+    a: "When clinically appropriate, yes. Options are physician-directed and can include medications that reduce withdrawal and cravings (such as buprenorphine or naltrexone, depending on the case). MAT is not forced and is not withheld as a moral test.",
+  },
+];
 ---
-<Base title="Heroin & Opioid Detox in Orange County" description="Medically supervised heroin, fentanyl, and prescription opioid detox in Santa Ana. In-network PPO opioid withdrawal management for Southern California." path="/detox/heroin-detox/" keywords="heroin detox Orange County, fentanyl detox Santa Ana, opioid detox PPO">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / Detox / Heroin & opioids</p>
-    <h1>Heroin and opioid detox</h1>
-    <p class="lede">In 2026 this page is mostly about fentanyl, whether someone bought heroin, pills, or “something else.” Supervised detox manages withdrawal. It also exists so people do not leave a garage detox and overdose on a lowered tolerance.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Medication-assisted treatment is discussed when it is clinically appropriate. It is not forced and it is not withheld as a moral test. If someone is not breathing, call 911 and use naloxone if you have it.</p>
-  </div></section>
+
+<Base
+  title="Heroin Detox"
+  description="Medically supervised heroin, fentanyl, and prescription opioid detox in Santa Ana. Withdrawal timeline, MAT, and in-network PPO opioid detox for Southern California."
+  path="/detox/heroin-detox/"
+  keywords="heroin detox Orange County, fentanyl detox Santa Ana, opioid detox PPO, medication assisted treatment"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Detox", path: "/detox/" },
+    { name: "Heroin detox", path: "/detox/heroin-detox/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/detox/">Detox</a> / Heroin & opioids</p>
+      <p class="kicker">Detox</p>
+      <h1>Heroin detox in Orange County</h1>
+      <p class="lede">In 2026 this page is mostly about fentanyl, whether someone bought heroin, pills, or “something else.” Supervised detox manages withdrawal. It also exists so people do not leave a garage detox and overdose on a lowered tolerance.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What is heroin detox?</h2>
+      <p>Medically supervised withdrawal from heroin and other opioids. The body has been functioning with the drug; stopping abruptly produces a predictable withdrawal syndrome. Detox is also the start of the psychological work — not the whole of it. If someone is not breathing, call 911 and use naloxone if you have it.</p>
+      <h2>Heroin and opioid harm</h2>
+      <p>National overdose deaths involving heroin rose sharply from the late 1990s into the 2010s. The current street supply is dominated by fentanyl. Local treatment admissions still include heroin, fentanyl, and prescription opioids — often mixed. We treat the opioid in front of us, not the name on an old bottle.</p>
+      <h2>How heroin detox works here</h2>
+      <ol>
+        <li><strong>Evaluation</strong> — last use, route, other substances, mental health, and withdrawal history.</li>
+        <li><strong>Stabilization</strong> — 24/7 supervision, comfort medications, COWS when it fits.</li>
+        <li><strong>Next level of care</strong> — <a href="/programs/residential/">residential treatment</a> on the same campus, plus aftercare planning.</li>
+      </ol>
+      <h2>Common withdrawal symptoms</h2>
+      <ul>
+        <li>Intense cravings</li>
+        <li>Sweating, fever, yawning</li>
+        <li>Insomnia</li>
+        <li>Muscle aches</li>
+        <li>Nausea, vomiting, diarrhea</li>
+        <li>Agitation, anxiety, depression</li>
+      </ul>
+      <h2>Why home detox is unsafe</h2>
+      <p>The symptoms are severe. Relapse during home detox is common. The dose that used to “take the edge off” can kill after a few days off. Medical detox is the safer setting.</p>
+      <h2>Medication-assisted treatment</h2>
+      <p>MAT is evidence-based for opioid use disorder. A physician may use medications that ease withdrawal and reduce cravings. Naltrexone may be used when the person is fully withdrawn and the clinical picture fits. We do not copy alcohol-specific medications onto this page as if they were opioid MAT. Therapy still happens. MAT is not a moral test.</p>
+      <h2>Heroin detox timeline</h2>
+      <ul>
+        <li><strong>6–12 hours</strong> — early symptoms (faster with short-acting fentanyl)</li>
+        <li><strong>Days 1–2</strong> — cravings, nausea, insomnia intensify</li>
+        <li><strong>Days 3–5</strong> — often the peak of physical symptoms</li>
+        <li><strong>Days 6–10</strong> — physical symptoms ease; anxiety and depression may continue</li>
+      </ul>
+      <p>Related: <a href="/treatments/drug-rehab/">drug rehab</a>, <a href="/blog/signs-opioid-addiction/">signs of opioid addiction</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Does insurance cover heroin detox?</h2>
+        <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Some behavioral-health benefits are administered by Beacon / Carelon. We verify the card before you travel.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

@@ -1,44 +1,141 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const programs = [
+  {
+    href: "/programs/detox/",
+    title: "Detox",
+    kicker: "Withdrawal management",
+    text: "Medically supervised withdrawal — 24/7 observation, medications when indicated, CIWA and COWS when those scales fit. The first days. Not the whole of treatment.",
+  },
+  {
+    href: "/programs/residential/",
+    title: "Residential",
+    kicker: "Live-in clinical work",
+    text: "Live on campus after you are medically stable: individual therapy, daily groups, family sessions when timed, and aftercare planning that starts early.",
+  },
+  {
+    href: "/programs/family/",
+    title: "Family program",
+    kicker: "Partners · parents · adult children",
+    text: "Education, group support, and family therapy so recovery has a chance at home instead of being quietly undone. You can call before your person is willing to come in.",
+  },
+];
+
+const faq = [
+  {
+    q: "Do you offer both detox and residential treatment in Orange County?",
+    a: "Yes. Both are delivered on the Santa Ana campus by one team. Detox is withdrawal management. Residential is the live-in clinical program after you are stable enough to do that work. /programs/inpatient/ redirects here — in our licensing, the live-in program is residential treatment.",
+  },
+  {
+    q: "How long does detox last?",
+    a: "Detoxification can usually be accomplished in several days — often in the 3–10 day range cited in ASAM and CMS guidance — or until signs and symptoms can be managed at a less intensive level of care. Length depends on withdrawal risk, substances, medical status, and severity. It is not a marketing number.",
+  },
+  {
+    q: "How do you decide whether someone starts in detox or residential?",
+    a: "A clinical assessment. The first call covers substances, frequency, last use, prior withdrawals, medications, mental health history, and living situation. Arrival includes a history and physical. ASAM Criteria guide the recommendation — not a website quiz.",
+  },
+  {
+    q: "Does PPO insurance cover detox and residential at Experience Recovery?",
+    a: "We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Medically necessary withdrawal management and residential treatment are commonly covered SUD benefits on commercial PPO plans. Authorization is typical. We verify before admission.",
+  },
+];
 ---
 
 <Base
   title="Detox & Residential Programs in Orange County"
   description="Medically supervised detox, residential treatment, and a family program in Santa Ana. In-network with Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE."
   path="/programs/"
-  keywords="detox program Orange County, residential treatment Santa Ana, family program rehab California"
+  keywords="detox program Orange County, residential treatment Santa Ana, family program rehab California, inpatient rehab Orange County"
+  faq={faq}
+  image="/images/brand/editorial-threshold.jpg"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Programs", path: "/programs/" },
+  ]}
+  itemList={programs.map((p) => ({ name: p.title, path: p.href }))}
 >
   <section class="page-hero">
-    <div class="wrap">
-      <p class="breadcrumbs"><a href="/">Home</a> / Programs</p>
-      <p class="kicker">Programs</p>
-      <h1>Levels of care on one campus</h1>
-      <p class="lede">The right starting point depends on what’s happening medically, what’s been used, and what support exists at home. We decide that with a clinical assessment — not a website quiz.</p>
+    <div class="wrap page-hero-split">
+      <div>
+        <p class="breadcrumbs"><a href="/">Home</a> / Programs</p>
+        <p class="kicker">Programs · One campus</p>
+        <h1>Levels of care on one campus</h1>
+        <p class="lede">The right starting point depends on what’s happening medically, what’s been used, and what support exists at home. We decide that with a clinical assessment — not a length-of-stay package on a brochure.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#levels">Levels of care</a>
+          <a href="#decide">How we decide</a>
+          <a href="#includes">What each program includes</a>
+          <a href="#insurance">Insurance</a>
+        </nav>
+      </div>
+      <figure class="hero-object">
+        <img src="/images/brand/editorial-threshold.jpg" alt="Editorial courtyard doorway with late-afternoon light — a visual for stepping into residential care, not a labeled campus photo" width="1200" height="900" />
+      </figure>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section" id="levels">
     <div class="wrap grid-3">
-      <article class="card">
-        <h2><a href="/programs/detox/">Detox</a></h2>
-        <p>Medically supervised withdrawal management. The first days under clinical supervision, around the clock.</p>
-      </article>
-      <article class="card">
-        <h2><a href="/programs/residential/">Residential</a></h2>
-        <p>Live on campus while doing the clinical work — therapy, group, family sessions, and skills practice in a structured environment.</p>
-      </article>
-      <article class="card">
-        <h2><a href="/programs/family/">Family program</a></h2>
-        <p>Education and therapy for partners, parents, and adult children while a loved one is in treatment.</p>
-      </article>
+      {programs.map((p) => (
+        <a class="card index-card" href={p.href}>
+          <p class="kicker">{p.kicker}</p>
+          <h2>{p.title}</h2>
+          <p>{p.text}</p>
+          <span class="more">Program page →</span>
+        </a>
+      ))}
     </div>
   </section>
-  <section class="section section-alt">
+
+  <section class="section section-alt" id="decide">
     <div class="wrap prose">
       <h2>How we decide where to start</h2>
-      <p>The first call covers substances used, frequency, last use, prior withdrawals, current medications, mental health history, and living situation. That conversation, plus a medical assessment on arrival, drives the recommendation.</p>
-      <h2>Insurance and cost</h2>
-      <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Benefits are verified before admission. Call (866) 514-7282 to start.</p>
+      <p>The clinician on the first call asks about substances used, frequency, last use, prior withdrawals (including seizures or DTs), current medications, mental health history, and what home and work look like. That conversation, plus a history and physical on arrival, drives the recommendation.</p>
+      <p>Detoxification can usually be accomplished in several days, or until signs and symptoms can be managed at a less intensive level of care. Length depends on withdrawal risk, substances, medical status, and severity — not a marketing number. We use CIWA and COWS when those scales fit the presentation.</p>
+      <p>Treatment is meant to be a continuum, not two separate businesses. When someone completes detox and is medically stable, they step into the residential program with the same team. Detox without a next level of care is a medical event, not a treatment episode.</p>
+    </div>
+  </section>
+
+  <section class="section" id="includes">
+    <div class="wrap grid-2">
+      <article class="card">
+        <h3>Detox includes</h3>
+        <ul>
+          <li>24/7 medical supervision during active withdrawal</li>
+          <li>History and physical by a licensed healthcare provider</li>
+          <li>Physician-directed medications when indicated</li>
+          <li>Vitals monitoring and nursing assessment</li>
+          <li>CIWA and COWS when those scales fit</li>
+          <li>A plan for residential treatment before detox discharge</li>
+        </ul>
+        <p>Common substances: alcohol, opioids, benzodiazepines, stimulants, mixed use. <a href="/programs/detox/">Detox program</a></p>
+      </article>
+      <article class="card">
+        <h3>Residential includes</h3>
+        <ul>
+          <li>Living on campus with a structured day</li>
+          <li>Individual therapy with a primary clinician</li>
+          <li>Daily groups — CBT, skills, process, psychoeducation</li>
+          <li>Family work when clinically timed</li>
+          <li>Psychiatric consultation when needed</li>
+          <li>Aftercare planning that starts early — not the Friday of discharge</li>
+        </ul>
+        <p>Length of stay is clinical and often concurrent-reviewed by the payer. <a href="/programs/residential/">Residential treatment</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="insurance">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Insurance and cost</h2>
+        <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Benefits are verified before admission so you know what is — and is not — covered. Website content is not a contract of payment.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
     </div>
   </section>
   <CtaBand />

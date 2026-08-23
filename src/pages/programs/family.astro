@@ -1,18 +1,75 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+import { site } from "../../data/site";
+
+const faq = [
+  {
+    q: "Can a family member call if their person is not willing to enter treatment?",
+    a: "Yes. You do not have to wait. Admissions can help a family figure out what to say, and what to do if the person is not willing to come in yet. Calls are confidential.",
+  },
+  {
+    q: "When does family therapy start?",
+    a: "Usually after acute detox, when the client is stable enough for conversations that are emotionally heavy. Not on day one of withdrawal.",
+  },
+];
 ---
 
-<Base title="Family Program | Experience Recovery" description="Family education, group support, and family therapy while a loved one is in residential treatment in Santa Ana. Confidential help for partners, parents, and adult children." path="/programs/family/" keywords="family program rehab Orange County, family therapy addiction Santa Ana">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Family</p>
-    <p class="kicker">Programs</p>
-    <h1>Family program</h1>
-    <p class="lede">Living with a loved one’s addiction affects everyone around them. The family program is education, group support, and family therapy so recovery has a chance at home instead of being quietly undone.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Family work usually begins after acute detox, when the client is stable enough for conversations that are emotionally heavy. You do not have to wait to call. Often the most useful first step is helping a family figure out what to say, and what to do if the person is not willing to come in yet.</p>
-    <p>Partners, parents of adult children, adult children of parents, siblings, and sometimes close friends who are the actual support system. Calls are confidential. (866) 514-7282.</p>
-  </div></section>
+<Base
+  title="Family Program | Experience Recovery"
+  description="Family education, group support, and family therapy while a loved one is in residential treatment in Santa Ana. Confidential help for partners, parents, and adult children."
+  path="/programs/family/"
+  keywords="family program rehab Orange County, family therapy addiction Santa Ana"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Programs", path: "/programs/" },
+    { name: "Family program", path: "/programs/family/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Family</p>
+      <p class="kicker">Programs</p>
+      <h1>Family program</h1>
+      <p class="lede">Addiction reshapes a household. Recovery has to include the people in it. Education, group support, and family therapy so recovery has a chance at home instead of being quietly undone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>For families and partners</h2>
+      <p>Living with a loved one’s addiction affects partners, parents, children, and siblings. The family program is how those people get information and a place to talk that is not another argument in the kitchen.</p>
+      <h2>What the program includes</h2>
+      <h3>Family education</h3>
+      <p>What addiction is and is not, how recovery works, what the first months can look like, what relapse means and does not mean, and what useful support actually looks like — which is often not what families assume.</p>
+      <h3>Family therapy</h3>
+      <p>Structured sessions with a clinician — sometimes one family member, sometimes the household. The goal is not to relitigate the past. It is to talk without the substance sitting in the middle of every sentence.</p>
+      <h3>Family groups</h3>
+      <p>Other families in a similar week. Hearing “us too” is, for many people, the first time they have felt less alone in years.</p>
+      <h3>Individual support for family members</h3>
+      <p>Codependency, anxiety, depression, grief. If you need your own clinician, we can connect you — here when it fits, or by referral.</p>
+      <h2>Who participates</h2>
+      <ul>
+        <li>Spouses and partners</li>
+        <li>Parents of adult children in treatment</li>
+        <li>Adult children of parents in treatment</li>
+        <li>Siblings</li>
+        <li>Close friends who are the actual support system</li>
+      </ul>
+      <h2>When it happens</h2>
+      <p>Family work usually begins once the client is past acute detox and stable in residential treatment. That timing matters.</p>
+      <h2>If your loved one isn’t in treatment yet</h2>
+      <p>Call {site.phone}. Often the most useful first step is helping a family decide what to say, and what to do if the person refuses.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

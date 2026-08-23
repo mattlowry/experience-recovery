@@ -13,7 +13,7 @@ import { campusPhotos, addressLine } from "../../data/site";
   <section class="section"><div class="wrap">
     <div class="grid-3">
       {campusPhotos.map((photo) => (
-        <figure class="photo-frame">
+        <figure class="photo-frame photo-edit">
           <img src={photo.src} alt={photo.alt} width="800" height="600" />
           <figcaption>{photo.caption}</figcaption>
         </figure>

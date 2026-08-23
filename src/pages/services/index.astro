@@ -1,44 +1,133 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
 
 const items = [
-  { href: "/services/cognitive-behavioral-therapy/", title: "Cognitive behavioral therapy", text: "CBT for the thoughts and behaviors that keep use in place — delivered in individual and group settings." },
-  { href: "/services/relapse-prevention/", title: "Relapse prevention", text: "Trigger work and aftercare planning that starts during residential treatment, not the week of discharge." },
-  { href: "/services/holistic-therapy/", title: "Holistic therapy", text: "Movement, mindfulness, nutrition, and time outdoors as supports for medical and clinical work — not a replacement for it." },
-  { href: "/services/first-responders/", title: "First responders track", text: "Treatment that understands shift work, trauma exposure, and the insurance products first-responder families actually carry." },
+  {
+    href: "/services/cognitive-behavioral-therapy/",
+    title: "Cognitive behavioral therapy",
+    kicker: "Individual + group",
+    text: "CBT for the thoughts and behaviors that keep use in place. Used because it has a research base for substance use and for the anxiety and depression that travel with it.",
+  },
+  {
+    href: "/services/relapse-prevention/",
+    title: "Relapse prevention",
+    kicker: "Before discharge",
+    text: "Trigger work and a written next step — IOP, outpatient therapy, recovery housing — started during residential treatment, not invented on a Friday.",
+  },
+  {
+    href: "/services/holistic-therapy/",
+    title: "Holistic therapy",
+    kicker: "Supports, not substitutes",
+    text: "Movement, mindfulness, nutrition, and time outdoors. Bodies in withdrawal need food, sleep, and motion. This does not replace medical or clinical work.",
+  },
+  {
+    href: "/services/first-responders/",
+    title: "First responders track",
+    kicker: "Shift work · trauma exposure",
+    text: "Treatment that understands the job and the PPO or municipal card first-responder families actually carry. Confidentiality is explained on the first call.",
+  },
+];
+
+const modalities = [
+  "CBT",
+  "DBT skills",
+  "Seeking Safety",
+  "Motivational interviewing",
+  "Relapse prevention",
+  "Living in Balance",
+  "Rock to Recovery",
+  "Breathworks",
+  "Feedback Informed Treatment",
+];
+
+const faq = [
+  {
+    q: "What therapies does Experience Recovery use?",
+    a: "Modalities used on campus include CBT, DBT skills, Seeking Safety, motivational interviewing, relapse-prevention curricula, Living in Balance, Rock to Recovery, and Breathworks, delivered by trained staff. We also use Feedback Informed Treatment — your goals and the working relationship are checked, not assumed. We do not promise a single trademarked method as a cure.",
+  },
+  {
+    q: "What is different between detox services and residential services?",
+    a: "At detox, the medical team manages withdrawal, monitors vitals, and educates you as symptoms change. In residential treatment you work with a case manager, attend daily groups, and have individual therapy typically one to two times per week. Family systems are addressed when you are past acute withdrawal — not on day one.",
+  },
+  {
+    q: "Is holistic therapy a replacement for medical detox?",
+    a: "No. Movement, mindfulness, nutrition, and time outdoors support a body in withdrawal. They do not replace physician-directed detox, nursing observation, or individual therapy.",
+  },
+  {
+    q: "Do you have a first-responder program in Orange County?",
+    a: "Yes. The first-responders track is for people whose work includes shift schedules and trauma exposure — fire, EMS, law enforcement, and similar roles. Confidentiality and insurance (including many municipal and TRICARE cards) are handled on the first call.",
+  },
 ];
 ---
 
 <Base
   title="Therapy & Recovery Services in Orange County"
-  description="CBT, relapse prevention, holistic supports, and a first-responders track at Experience Recovery in Santa Ana. Clinical services inside in-network detox and residential care."
+  description="CBT, DBT skills, Seeking Safety, relapse prevention, holistic supports, and a first-responders track at Experience Recovery in Santa Ana — inside in-network detox and residential care."
   path="/services/"
-  keywords="CBT rehab Orange County, relapse prevention Santa Ana, holistic therapy addiction treatment"
+  keywords="CBT rehab Orange County, Seeking Safety Santa Ana, relapse prevention, first responder treatment California, Rock to Recovery Breathworks"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services/" },
+  ]}
+  itemList={items.map((i) => ({ name: i.title, path: i.href }))}
 >
   <section class="page-hero">
     <div class="wrap">
       <p class="breadcrumbs"><a href="/">Home</a> / Services</p>
-      <p class="kicker">Services</p>
+      <p class="kicker">Clinical services</p>
       <h1>What happens inside each level of care</h1>
-      <p class="lede">Clinical services are the work of detox and residential treatment: therapy, case management, medical care, and the groups that structure the day. We use more than one modality because people do not recover in one language.</p>
+      <p class="lede">Services are the work of detox and residential treatment: therapy, case management, medical care, and the groups that structure the day. People do not recover in one language, so we do not run one curriculum and call it finished.</p>
+      <nav class="jump" aria-label="On this page">
+        <a href="#pages">Service pages</a>
+        <a href="#detox">Detox stage</a>
+        <a href="#residential">Residential stage</a>
+        <a href="#modalities">Modalities</a>
+        <a href="#questions">Questions</a>
+      </nav>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section" id="pages">
     <div class="wrap grid-2">
       {items.map((item) => (
-        <article class="card">
-          <h2><a href={item.href}>{item.title}</a></h2>
+        <a class="card index-card" href={item.href}>
+          <p class="kicker">{item.kicker}</p>
+          <h2>{item.title}</h2>
           <p>{item.text}</p>
-        </article>
+          <span class="more">Service page →</span>
+        </a>
       ))}
     </div>
   </section>
+
   <section class="section section-alt">
-    <div class="wrap prose">
-      <h2>Detox and residential, clinically</h2>
-      <p>At detox, medical staff manage withdrawal and educate you as symptoms change. In residential treatment you work with a case manager, attend daily groups, and have individual therapy. Family systems are addressed when it is clinically timed — not on day one of acute withdrawal.</p>
-      <p>Modalities used on campus include CBT, DBT skills, Seeking Safety, motivational interviewing, and relapse-prevention curricula, always delivered by trained staff. We do not promise a single trademarked method as a cure.</p>
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2 id="detox">Detox stage</h2>
+        <p>The medical team visits often, manages withdrawal symptoms, and educates you as the picture changes. Emotional concerns in early withdrawal are handled with the treatment team — not left for “later” if they are unsafe now.</p>
+        <h2 id="residential">Residential stage</h2>
+        <p>Daily group programming using more than one approach. A case manager uses your goals and preferences to drive the process and coordinate other services. Individual therapy typically runs one to two times per week at this stage. Family systems begin when you are stable enough for those conversations.</p>
+        <h2>How we stay client-informed</h2>
+        <p>Feedback Informed Treatment means we take your goals, preferences, and relationship with the people providing services into account on a regular basis. Treatment can work. People also recover in a variety of ways. We will not pretend otherwise, and we will not guarantee an outcome.</p>
+      </div>
+      <aside class="card" id="modalities">
+        <h3>Modalities named on campus</h3>
+        <p>Always by a certified or licensed provider where that credential applies. Trauma-informed and Seeking Safety trained. Not one-size-fits-all.</p>
+        <div class="modality-list" style="margin:1rem 0">
+          {modalities.map((m) => <span>{m}</span>)}
+        </div>
+        <p>See <a href="/programs/">programs</a> for the bed and the day. See <a href="/treatments/">treatments</a> for the substance.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
     </div>
   </section>
   <CtaBand />

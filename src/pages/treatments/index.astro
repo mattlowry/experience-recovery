@@ -1,12 +1,56 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
 
 const tracks = [
-  { href: "/treatments/drug-rehab/", title: "Drug rehab", text: "Opioids, stimulants, benzodiazepines, and polysubstance use. Detox and residential under one team." },
-  { href: "/treatments/alcohol-rehab/", title: "Alcohol rehab", text: "Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care." },
-  { href: "/treatments/eating-disorder-treatment/", title: "Eating disorder treatment", text: "For clients whose disordered eating co-occurs with substance use — integrated, not a standalone ED hospital." },
-  { href: "/treatments/lgbtq-drug-rehab/", title: "LGBTQ drug rehab", text: "LGBTQ-affirming rehabilitation. Trauma-informed clinical work in an environment built for safety." },
+  {
+    href: "/treatments/drug-rehab/",
+    title: "Drug rehab",
+    kicker: "Opioids · stimulants · benzos",
+    text: "Comprehensive rehabilitation for opioids (including fentanyl and heroin), stimulants, benzodiazepines, and mixed use. Detox and residential under one team.",
+  },
+  {
+    href: "/treatments/alcohol-rehab/",
+    title: "Alcohol rehab",
+    kicker: "Withdrawal risk · dual diagnosis",
+    text: "Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care.",
+  },
+  {
+    href: "/treatments/eating-disorder-treatment/",
+    title: "Eating disorder treatment",
+    kicker: "Co-occurring with SUD",
+    text: "For clients whose disordered eating arrives with substance use. Integrated here — not a standalone eating-disorder hospital.",
+  },
+  {
+    href: "/treatments/lgbtq-drug-rehab/",
+    title: "LGBTQ drug rehab",
+    kicker: "Affirming · trauma-informed",
+    text: "LGBTQ-affirming drug and alcohol rehabilitation. Clinical work in an environment built for safety, not a one-hour special topic.",
+  },
+];
+
+const faq = [
+  {
+    q: "What substances does Experience Recovery treat?",
+    a: "Adults affected by alcohol, opioids (heroin, fentanyl, prescription opioids), benzodiazepines, stimulants (cocaine, methamphetamine, prescription stimulants), and polysubstance use. Co-occurring anxiety, depression, PTSD, and bipolar disorder are assessed in the same admission.",
+  },
+  {
+    q: "Is this a drug rehab or an alcohol rehab?",
+    a: "Both. Tracks are organized by what you are recovering from. Levels of care — detox and residential — are the same campus and the same team. Start on this page for the substance; use Programs for the setting.",
+  },
+  {
+    q: "Do you treat fentanyl and heroin in Orange County?",
+    a: "Yes. Opioid dependence — including fentanyl, heroin, and prescription opioids — is treated with medically supervised detox and, when clinically appropriate, medication-assisted treatment. After detox, residential treatment focuses on cravings and the next level of care.",
+  },
+  {
+    q: "Is the eating-disorder page a standalone ED hospital?",
+    a: "No. Eating-disorder work here is for clients whose disordered eating co-occurs with substance use. If someone needs a dedicated eating-disorder hospital, we will say so.",
+  },
+  {
+    q: "Does in-network PPO insurance cover these treatment tracks in Orange County?",
+    a: "Most commercial PPO plans include a substance use benefit that can cover medically necessary detox and residential treatment at an in-network facility. We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. We verify the specific card before admission.",
+  },
 ];
 ---
 
@@ -14,32 +58,85 @@ const tracks = [
   title="Addiction Treatments in Orange County"
   description="Drug rehab, alcohol rehab, eating-disorder-informed care, and LGBTQ-affirming treatment in Santa Ana. In-network PPO detox and residential programs for Southern California."
   path="/treatments/"
-  keywords="addiction treatments Orange County, drug rehab Santa Ana, alcohol rehab Orange County, LGBTQ rehab California"
+  keywords="addiction treatments Orange County, drug rehab Santa Ana, alcohol rehab Orange County, LGBTQ rehab California, fentanyl treatment Orange County"
+  faq={faq}
+  image="/images/brand/editorial-verification.jpg"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Treatments", path: "/treatments/" },
+  ]}
+  itemList={tracks.map((t) => ({ name: t.title, path: t.href }))}
 >
   <section class="page-hero">
-    <div class="wrap">
-      <p class="breadcrumbs"><a href="/">Home</a> / Treatments</p>
-      <p class="kicker">Treatments</p>
-      <h1>What you’re recovering from</h1>
-      <p class="lede">Specialized tracks organized by substance and population. Levels of care — detox, residential, family — live under Programs. Insurance lives under Insurance. This page is the clinical starting map.</p>
+    <div class="wrap page-hero-split">
+      <div>
+        <p class="breadcrumbs"><a href="/">Home</a> / Treatments</p>
+        <p class="kicker">Treatments · Santa Ana</p>
+        <h1>What you’re recovering from</h1>
+        <p class="lede">Specialized tracks organized by substance and population. The clinical work and the bed you sleep in are described under Programs. Insurance is its own map. This page is the starting clinical question: what is in the system?</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#tracks">Tracks</a>
+          <a href="#substances">Substances</a>
+          <a href="#approach">Clinical approach</a>
+          <a href="#questions">Questions</a>
+        </nav>
+      </div>
+      <figure class="hero-object">
+        <img src="/images/brand/editorial-verification.jpg" alt="Editorial still life: notebook, citrus, and a blank card — the first conversation about treatment, not a campus photograph" width="1200" height="900" />
+      </figure>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section" id="tracks">
     <div class="wrap grid-2">
       {tracks.map((t) => (
-        <article class="card">
-          <h2><a href={t.href}>{t.title}</a></h2>
+        <a class="card index-card" href={t.href}>
+          <p class="kicker">{t.kicker}</p>
+          <h2>{t.title}</h2>
           <p>{t.text}</p>
-        </article>
+          <span class="more">Open this track →</span>
+        </a>
       ))}
     </div>
   </section>
-  <section class="section section-alt">
+
+  <section class="section section-alt" id="substances">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>What we treat</h2>
+        <p>We work with adults whose lives are being affected by alcohol, opioids, benzodiazepines, stimulants, and more than one of those at once. That last category — polysubstance use — is routine on this campus, not an exception we send somewhere else.</p>
+        <ul>
+          <li><strong>Alcohol</strong> — daily drinking through physical dependence. Withdrawal can include seizures; medical detox is often the first step. <a href="/treatments/alcohol-rehab/">Alcohol rehab</a> · <a href="/detox/alcohol-detox/">Alcohol detox</a></li>
+          <li><strong>Opioids</strong> — heroin, fentanyl, and prescription opioid dependence. Detox under medical supervision; medication-assisted treatment when clinically appropriate. <a href="/detox/heroin-detox/">Opioid detox</a></li>
+          <li><strong>Stimulants</strong> — cocaine, methamphetamine, and prescription stimulant misuse, treated alongside crash, sleep, and psychiatric symptoms.</li>
+          <li><strong>Benzodiazepines</strong> — withdrawal can be medically dangerous. Protocols are physician-directed, not a weekend taper at home.</li>
+          <li><strong>Polysubstance</strong> — mixed use needs a coordinated detox plan. Tell the truth about everything in the system.</li>
+        </ul>
+        <h2>Co-occurring mental health</h2>
+        <p>Anxiety, depression, PTSD, and bipolar disorder are assessed in the same episode of care. We do not park the other diagnosis until “the addiction work is done.” If someone needs a locked psychiatric bed, we will say so.</p>
+      </div>
+      <aside class="card">
+        <h3>Not sure which page?</h3>
+        <p>If you are choosing a <em>setting</em> — detox, residential, family — go to <a href="/programs/">Programs</a>.</p>
+        <p>If you are asking whether a <em>PPO will bill here</em>, go to <a href="/insurance/">Insurance</a>.</p>
+        <p>If you are asking what is being used, you are on the right index.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="approach">
     <div class="wrap prose">
-      <h2>How treatment is actually delivered</h2>
-      <p>Whatever brings someone in, the work is evidence-informed and trauma-aware: cognitive-behavioral therapy, motivational interviewing, group and family therapy, and medication-assisted treatment when clinically appropriate. Co-occurring anxiety, depression, PTSD, and bipolar concerns are treated in the same episode of care.</p>
-      <p>We are Joint Commission–accredited and licensed by California DHCS (300011GP) for residential detoxification and treatment, with Incidental Medical Services for on-site medical care.</p>
-      <p>Looking for a level of care instead of a substance? See <a href="/programs/">programs</a>. Looking for a PPO? See <a href="/insurance/">in-network insurance</a>.</p>
+      <h2>How treatment is delivered</h2>
+      <p>Whatever brings someone in, the work is evidence-informed and trauma-aware: cognitive-behavioral therapy, motivational interviewing, group and family therapy, and medication-assisted treatment when clinically appropriate. That list matches what this program already uses on campus — it is not a menu of optional add-ons.</p>
+      <p>We are Joint Commission–accredited for behavioral health care and licensed by California DHCS (300011GP) for residential detoxification and treatment, with Incidental Medical Services for on-site medical care. Level-of-care decisions use the ASAM Criteria.</p>
+      <p>Related services: <a href="/services/cognitive-behavioral-therapy/">CBT</a>, <a href="/services/relapse-prevention/">relapse prevention</a>, <a href="/services/first-responders/">first responders</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="questions">
+    <div class="wrap">
+      <h2>Questions people ask about treatment tracks</h2>
+      <FaqList items={faq} />
     </div>
   </section>
   <CtaBand />

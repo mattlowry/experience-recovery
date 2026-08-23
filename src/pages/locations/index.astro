@@ -1,7 +1,31 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
 import { locations } from "../../data/locations";
+import { addressLine, site } from "../../data/site";
+
+const oc = locations.filter((l) => l.county === "Orange County");
+const other = locations.filter((l) => l.county !== "Orange County");
+
+const faq = [
+  {
+    q: "Where is Experience Recovery located?",
+    a: "3919 W. Hazard Ave., Santa Ana, CA 92703. The DHCS license also lists 3921 W. Hazard Ave. All treatment is delivered here unless a page says otherwise.",
+  },
+  {
+    q: "Do you have other campuses in Los Angeles or San Diego?",
+    a: "No. These city pages exist because people search by city and insurance together. We did not invent satellite offices. Treatment is in Santa Ana.",
+  },
+  {
+    q: "How close is John Wayne Airport?",
+    a: "John Wayne Airport (SNA) is typically 15–20 minutes from campus in light traffic. People flying into Orange County use SNA more often than LAX.",
+  },
+  {
+    q: "Can I use in-network PPO benefits if I live in Los Angeles, Riverside, or San Diego County?",
+    a: "Usually yes on a commercial PPO. In-network status follows the plan and this facility, not the county line. We verify Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE before you drive.",
+  },
+];
 ---
 
 <Base
@@ -9,23 +33,77 @@ import { locations } from "../../data/locations";
   description="In-network drug and alcohol treatment in Santa Ana serving Orange County, Los Angeles, Long Beach, Riverside, and San Diego. Anthem, Blue Shield, United, Aetna, Cigna, Humana, TRICARE."
   path="/locations/"
   keywords="Southern California rehab, Orange County drug rehab near me, in network treatment Los Angeles Riverside San Diego"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Locations", path: "/locations/" },
+  ]}
+  itemList={locations.map((l) => ({ name: l.name, path: `/locations/${l.slug}/` }))}
 >
   <section class="page-hero">
-    <div class="wrap">
-      <p class="breadcrumbs"><a href="/">Home</a> / Locations</p>
-      <p class="kicker">Southern California</p>
-      <h1>One campus. The region we treat from.</h1>
-      <p class="lede">All treatment is delivered at 3919 W. Hazard Ave., Santa Ana, unless a page says otherwise. These pages exist because people search by city and insurance together — “Irvine Anthem rehab,” “Long Beach PPO detox,” “TRICARE near Pendleton.”</p>
+    <div class="wrap page-hero-split">
+      <div>
+        <p class="breadcrumbs"><a href="/">Home</a> / Locations</p>
+        <p class="kicker">Southern California · one campus</p>
+        <h1>One campus. The region we treat from.</h1>
+        <p class="lede">{addressLine}. These city pages exist because people search by city and insurance together — “Irvine Anthem rehab,” “Long Beach PPO detox,” “TRICARE near Pendleton.” We did not invent satellite offices. We wrote the geography honestly.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#orange-county">Orange County</a>
+          <a href="#socal">Greater SoCal</a>
+          <a href="#questions">Questions</a>
+        </nav>
+      </div>
+      <aside class="addr-card">
+        <p class="kicker" style="color:#f0c08a">Campus address</p>
+        <h3>{site.legalName}</h3>
+        <p>{addressLine}<br />License also lists {site.additionalStreet}</p>
+        <p>55 · 5 · 22 · 405 to Hazard Avenue<br />SNA typically 15–20 minutes</p>
+        <p><a href={site.phoneHref}>{site.phone}</a></p>
+      </aside>
     </div>
   </section>
-  <section class="section">
-    <div class="wrap grid-3">
-      {locations.map((loc) => (
-        <article class="card">
-          <h2><a href={`/locations/${loc.slug}/`}>{loc.name}</a></h2>
-          <p>{loc.county}<br />{loc.drive}</p>
-        </article>
-      ))}
+
+  <section class="section" id="orange-county">
+    <div class="wrap cluster">
+      <div class="section-head">
+        <h2>Orange County</h2>
+        <p class="lede">The 55, 5, 22, and 405 all reach Hazard Avenue. If you live in OC, this is a local licensed detox and residential program — not a drive to Los Angeles for an out-of-network bed.</p>
+      </div>
+      <div class="grid-3">
+        {oc.map((loc) => (
+          <a class="card index-card" href={`/locations/${loc.slug}/`}>
+            <p class="kicker">{loc.drive}</p>
+            <h3>{loc.name}</h3>
+            <span class="more">City page →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="socal">
+    <div class="wrap cluster">
+      <div class="section-head">
+        <h2>Greater Southern California</h2>
+        <p class="lede">County lines are not network lines. Call first. Do not sit on the 405 with an unconfirmed authorization.</p>
+      </div>
+      <div class="grid-3">
+        {other.map((loc) => (
+          <a class="card index-card" href={`/locations/${loc.slug}/`}>
+            <p class="kicker">{loc.county} · {loc.drive}</p>
+            <h3>{loc.name}</h3>
+            <span class="more">City page →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+      <p style="margin-top:1rem"><a href="/insurance/">Verify insurance</a> before you plan the drive.</p>
     </div>
   </section>
   <CtaBand />

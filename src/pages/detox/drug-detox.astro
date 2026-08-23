@@ -1,15 +1,66 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Is it safe to detox from drugs at home?",
+    a: "Benzodiazepine withdrawal can seize. Opioid withdrawal is miserable and a common path back to a dose that now overdoses. Stimulant crash can include severe depression. Medical detox exists so those events are not handled alone.",
+  },
+  {
+    q: "How long does drug detox last?",
+    a: "It depends on the drug, dose, duration, and whether more than one substance is in the system. There is no honest one-size number. The goal is a stable handoff into residential treatment.",
+  },
+];
 ---
-<Base title="Drug Detox in Orange County" description="Medically supervised drug detox in Santa Ana for opioids, benzos, stimulants, and mixed use. In-network with major Southern California PPO plans." path="/detox/drug-detox/" keywords="drug detox Orange County, medical detox Santa Ana PPO">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / Detox / Drug detox</p>
-    <h1>Drug detox</h1>
-    <p class="lede">Withdrawal management for drugs other than alcohol — and for the common case where alcohol is in the mix too. One medical team, one campus.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Tell us everything in the system. Protocols change when benzodiazepines, fentanyl, and alcohol overlap. See <a href="/programs/detox/">the detox program</a> and <a href="/treatments/drug-rehab/">drug rehab</a>.</p>
-  </div></section>
+
+<Base
+  title="Drug Detox in Orange County"
+  description="Medically supervised drug detox in Santa Ana for opioids, benzodiazepines, stimulants, and mixed use. In-network with major Southern California PPO plans."
+  path="/detox/drug-detox/"
+  keywords="drug detox Orange County, medical detox Santa Ana PPO, fentanyl meth benzo detox"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Detox", path: "/detox/" },
+    { name: "Drug detox", path: "/detox/drug-detox/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/detox/">Detox</a> / Drug detox</p>
+      <p class="kicker">Detox</p>
+      <h1>Drug detox in Orange County</h1>
+      <p class="lede">Withdrawal management for drugs — and for the common case where alcohol is in the mix too. One medical team, one Santa Ana campus.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What is a drug detox?</h2>
+      <p>Detoxification is the medically supervised process of clearing a substance and managing withdrawal. “Cold turkey” is a description of stopping, not a treatment plan.</p>
+      <h2>Orange County addiction statistics</h2>
+      <p>Fentanyl deaths in California rose sharply from the mid-2010s. Amphetamine-related emergency visits and non-heroin opioid visits have also risen. County data have shown thousands of overdose and poisoning hospitalizations in a single year, methamphetamine as a leading drug of choice at admission, and a substantial share of people entering treatment with a co-occurring mental health condition. Those numbers are why this page exists.</p>
+      <h2>Drug detox withdrawal symptoms</h2>
+      <ul>
+        <li><strong>Amphetamines / meth</strong> — increased appetite, depression, vivid dreams, fatigue, slowed movement, irritability</li>
+        <li><strong>Benzodiazepines</strong> — anxiety, agitation, tremor, hallucinations, seizures</li>
+        <li><strong>Cannabis</strong> — anxiety, irritability, sleep disruption, stomach upset</li>
+        <li><strong>Heroin / opioids</strong> — muscle aches, insomnia, nausea, diarrhea, yawning, sweating, depression. See <a href="/detox/heroin-detox/">heroin detox</a>.</li>
+      </ul>
+      <h2>What to expect</h2>
+      <p>A physician evaluation and a written plan. 24/7 monitoring and medications when ordered. After detox, you stay on campus for <a href="/programs/residential/">residential treatment</a> — the same team, not a transfer to a different company’s house. Tell us everything in the system. Protocols change when benzodiazepines, fentanyl, and alcohol overlap.</p>
+      <h2>Why a drug detox is necessary</h2>
+      <p>Because withdrawal is a medical event, and because leaving detox without a next level of care is how people return to use with a lowered tolerance. Related: <a href="/programs/detox/">detox program</a>, <a href="/treatments/drug-rehab/">drug rehab</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

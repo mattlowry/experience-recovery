@@ -12,7 +12,7 @@ const faq = [
   },
   {
     q: "Where is the treatment campus?",
-    a: "3919 W. Hazard Ave., Santa Ana, CA 92703, in Orange County. People come from across Southern California — Irvine, Anaheim, Huntington Beach, Long Beach, Los Angeles, Riverside, and San Diego County.",
+    a: "3919 W. Hazard Ave., Santa Ana, CA 92703, in Orange County. People come from across Southern California — Irvine, Anaheim, Huntington Beach, Long Beach, Los Angeles, Riverside, and San Diego County. John Wayne Airport (SNA) is typically 15–20 minutes in light traffic.",
   },
   {
     q: "Do you offer medically supervised detox and residential treatment?",
@@ -23,6 +23,15 @@ const faq = [
     a: "Most commercial PPO plans include a substance use disorder benefit that can cover medically necessary detox and residential treatment at an in-network facility. We check your card — deductible, coinsurance, and prior auth — before you come in.",
   },
 ];
+
+const startHere = [
+  { href: "/treatments/", title: "Treatments", text: "Alcohol, drugs, co-occurring eating concerns, LGBTQ-affirming care." },
+  { href: "/programs/", title: "Programs", text: "Detox, residential, and the family program — one campus." },
+  { href: "/services/", title: "Services", text: "CBT, Seeking Safety, DBT skills, relapse prevention, first responders." },
+  { href: "/insurance/", title: "Insurance", text: "In-network PPO verification for the card in your wallet." },
+  { href: "/locations/", title: "Locations", text: "Santa Ana campus serving Orange County and greater SoCal." },
+  { href: "/about-us/", title: "About", text: "Licensure, approach, campus photographs, and the team." },
+];
 ---
 
 <Base
@@ -32,6 +41,8 @@ const faq = [
   keywords="in network rehab Orange County, PPO drug rehab Santa Ana, Anthem Blue Shield United Aetna Cigna Humana TRICARE rehab Southern California, alcohol detox Orange County"
   faq={faq}
   image="/images/campus/experience-recovery-frontdoors1.jpg"
+  breadcrumbs={[{ name: "Home", path: "/" }]}
+  itemList={startHere.map((s) => ({ name: s.title, path: s.href }))}
 >
   <section class="hero" style={`--hero: url("${campusPhotos[0].src}")`}>
     <div class="wrap">
@@ -47,11 +58,30 @@ const faq = [
     </div>
   </section>
 
+  <div class="cred-rail">
+    <article>
+      <strong>DHCS {site.dhcsLicense}</strong>
+      <span>License expires {site.dhcsExpires}</span>
+    </article>
+    <article>
+      <strong>Joint Commission</strong>
+      <span>HCO ID {site.jointCommissionHco}</span>
+    </article>
+    <article>
+      <strong>In-network PPO</strong>
+      <span>Anthem through TRICARE</span>
+    </article>
+    <article>
+      <strong>24/7 admissions</strong>
+      <span>Calls confidential</span>
+    </article>
+  </div>
+
   <section class="section">
     <div class="wrap">
       <p class="kicker">Insurance first</p>
       <h2>If the card says PPO, start here</h2>
-      <p class="lede">People in Southern California lose days calling programs that “take insurance” and then quote out-of-network rates. We are in-network with the plans below. Verification is a phone call, not a form letter.</p>
+      <p class="lede">People in Southern California lose days calling programs that “take insurance” and then quote out-of-network rates. We are in-network with the plans below. Verification is a phone call.</p>
       <div class="logo-row" style="margin:1.4rem 0 1rem">
         {carriers.map((c) => (
           <a class="chip" href={`/insurance/${c.slug}/`}>{c.name}</a>
@@ -69,26 +99,26 @@ const faq = [
         <h2>A starting point — not a diagnosis</h2>
         <p>The right level of care depends on medical history, what you’re using, and what’s going on at home and at work.</p>
         <div class="grid-2">
-          <article class="card">
+          <a class="card index-card" href="/treatments/alcohol-rehab/">
             <h3>Alcohol</h3>
             <p>Daily drinking to physical dependence, with medically supervised withdrawal when needed.</p>
-            <a href="/treatments/alcohol-rehab/">Alcohol rehab</a>
-          </article>
-          <article class="card">
+            <span class="more">Alcohol rehab →</span>
+          </a>
+          <a class="card index-card" href="/treatments/drug-rehab/">
             <h3>Opioids</h3>
-            <p>Heroin, fentanyl, and prescription opioid dependence. Detox under medical supervision; MAT when clinically appropriate.</p>
-            <a href="/treatments/drug-rehab/">Drug rehab</a>
-          </article>
-          <article class="card">
+            <p>Heroin, fentanyl, and prescription opioids. Detox under medical supervision; MAT when appropriate.</p>
+            <span class="more">Drug rehab →</span>
+          </a>
+          <a class="card index-card" href="/treatments/drug-rehab/">
             <h3>Stimulants</h3>
-            <p>Cocaine, methamphetamine, and prescription stimulant misuse — treated with any co-occurring mental health concerns.</p>
-            <a href="/treatments/drug-rehab/">Drug rehab</a>
-          </article>
-          <article class="card">
+            <p>Cocaine, methamphetamine, and prescription stimulant misuse — with co-occurring mental health care.</p>
+            <span class="more">Drug rehab →</span>
+          </a>
+          <a class="card index-card" href="/treatments/">
             <h3>Polysubstance</h3>
-            <p>More than one substance needs a coordinated detox and treatment plan. That is routine here, not an exception.</p>
-            <a href="/treatments/">All treatments</a>
-          </article>
+            <p>More than one substance needs a coordinated plan. That is routine here.</p>
+            <span class="more">All treatments →</span>
+          </a>
         </div>
       </div>
       <aside>
@@ -101,9 +131,8 @@ const faq = [
             Have the card ready. We check eligibility, network status, deductible, and prior authorization before you travel to Santa Ana.
           </p>
         </div>
-        <figure class="photo-frame" style="margin-top:1.2rem">
-          <img src={campusPhotos[1].src} alt={campusPhotos[1].alt} width="800" height="600" />
-          <figcaption>{campusPhotos[1].caption} — real campus photograph</figcaption>
+        <figure class="hero-object" style="margin-top:1.2rem">
+          <img src="/images/brand/ppo-card.jpg" alt="In-network PPO verification card for Experience Recovery" width="800" height="600" />
         </figure>
       </aside>
     </div>
@@ -111,43 +140,84 @@ const faq = [
 
   <section class="section">
     <div class="wrap">
-      <p class="kicker">What to expect</p>
-      <h2>From the first call to campus</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>The first call</h3>
-          <p>You’ll talk to a real person. We’ll ask about the situation and the insurance card, and we’ll help you figure out the right level of care — even if that’s somewhere other than here.</p>
+      <div class="stat-rail">
+        <article>
+          <strong>150+</strong>
+          <span>Years of combined clinical experience</span>
         </article>
-        <article class="card">
-          <h3>Verify benefits</h3>
-          <p>We verify in-network benefits before you commit. Deductible, coinsurance, carve-outs (Optum, Evernorth), and authorization — in that order.</p>
+        <article>
+          <strong>24/7</strong>
+          <span>Admissions line, calls confidential</span>
         </article>
-        <article class="card">
-          <h3>Arrival & intake</h3>
-          <p>Meet with a clinician for an assessment. If detox is appropriate, that begins under medical supervision the same day when a bed is available.</p>
+        <article>
+          <strong>One team</strong>
+          <span>Detox and residential on one campus</span>
+        </article>
+        <article>
+          <strong>OC</strong>
+          <span>Santa Ana, serving Southern California</span>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section section-alt">
-    <div class="wrap">
-      <p class="kicker">The campus</p>
-      <h2>Photographs of this place</h2>
-      <p class="lede">These are pictures of our Santa Ana campus — not stock interiors from another state.</p>
-      <div class="grid-3" style="margin-top:1.4rem">
-        {campusPhotos.slice(0, 6).map((photo) => (
-          <figure class="photo-frame">
-            <img src={photo.src} alt={photo.alt} width="720" height="540" />
-            <figcaption>{photo.caption}</figcaption>
-          </figure>
-        ))}
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker">What to expect</p>
+        <h2>From the first call to campus</h2>
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>The first call</h3>
+              <p>You’ll talk to a real person. We’ll ask about the situation and the insurance card, and we’ll help you figure out the right level of care — even if that’s somewhere other than here.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Verify benefits</h3>
+              <p>We verify in-network benefits before you commit. Deductible, coinsurance, carve-outs (Optum, Evernorth), and authorization — in that order.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Arrival & intake</h3>
+              <p>Meet with a clinician for an assessment. If detox is appropriate, that begins under medical supervision the same day when a bed is available.</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <p style="margin-top:1rem"><a href="/about-us/our-campus/">See the full campus gallery</a></p>
+      <div>
+        <p class="kicker">Start here</p>
+        <h2>The site, mapped</h2>
+        <div class="grid-2 start-grid">
+          {startHere.map((item) => (
+            <a class="card index-card" href={item.href}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section">
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker">The campus</p>
+        <h2>This is the building</h2>
+        <p class="lede">One treated photograph of the Santa Ana campus — not a grid of the same rooms. The rest of the real pictures live on the campus page.</p>
+        <p><a href="/about-us/our-campus/">Campus gallery and address</a> · <a href="/programs/">Detox and residential</a> · <a href="/locations/">Southern California</a></p>
+      </div>
+      <figure class="photo-frame photo-edit">
+        <img src={campusPhotos[2].src} alt={campusPhotos[2].alt} width="900" height="675" />
+        <figcaption>{campusPhotos[2].caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt">
     <div class="wrap grid-2">
       <div>
         <p class="kicker">Answers</p>

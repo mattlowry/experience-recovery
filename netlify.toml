@@ -20,16 +20,6 @@
 
 # Preserve existing URLs
 [[redirects]]
-  from = "/programs/inpatient"
-  to = "/programs/residential/"
-  status = 301
-
-[[redirects]]
-  from = "/programs/inpatient/"
-  to = "/programs/residential/"
-  status = 301
-
-[[redirects]]
   from = "/careers/"
   to = "/about-us/"
   status = 302
@@ -87,4 +77,90 @@
 [[redirects]]
   from = "/blog/relapse-prevention-strategies/"
   to = "/blog/strategies-for-relapse-prevention/"
+  status = 301
+
+# Duplicate or near-duplicate legacy slugs → kept URL
+[[redirects]]
+  from = "/blog/are-you-addicted-to-prescription-opioids/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/choosing-among-the-best-rehab-centers-in-california/"
+  to = "/blog/choose-best-rehab-centers-california/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/dealing-with-addictionand-getting-back-to-work/"
+  to = "/blog/dealing-addiction-getting-back-work/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/does-crystal-meth-addiction-require-a-medical-detox/"
+  to = "/blog/meth-addiction-medical-detox/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/experience-recovery-launches-helping-orange-county-residents-find-freedom-from-addiction/"
+  to = "/blog/experience-recovery-launches-helping-orange-county-residents-find-freedom-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/heroin-why-you-shouldnt-quit-cold-turkey/"
+  to = "/blog/quitting-heroin-cold-turkey/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-do-you-get-a-drug-addict-to-go-to-rehab/"
+  to = "/blog/get-drug-addict-go-rehab/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-family-therapy-can-improve-communication/"
+  to = "/blog/family-counseling-for-addicts-and-their-family-members/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-long-does-drug-rehab-take-at-experience-recovery/"
+  to = "/blog/long-drug-rehab-take-experience-recovery/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-to-choose-from-the-best-rehab-centers-in-california/"
+  to = "/blog/choose-best-rehab-centers-california/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-to-commit-someone-to-experience-recovery-drug-rehab/"
+  to = "/blog/commit-someone-experience-recovery-drug-rehab/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-to-pay-for-drug-rehab-without-insurance-at-experience-recovery/"
+  to = "/blog/pay-drug-rehab-without-insurance-experience-recovery/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/how-we-facilitate-a-group-therapy-session/"
+  to = "/services/cognitive-behavioral-therapy/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/incorporating-your-own-relapse-prevention-strategies/"
+  to = "/blog/strategies-for-relapse-prevention/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/opioid-addiction-and-pain-management-issues/"
+  to = "/blog/opioid-addiction-pain-management-issues/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-benefits-of-a-gender-specific-addiction-recovery-program/"
+  to = "/blog/benefits-gender-specific-addiction-recovery-program/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-importance-of-identifying-addiction-triggers-in-recovery/"
+  to = "/blog/identifying-addiction-triggers/"
   status = 301

@@ -1,16 +1,98 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "What skills can I learn in CBT at Experience Recovery?",
+    a: "Identifying and challenging thoughts that make use feel inevitable, coping with cravings and stress, communication and problem-solving, and emotional regulation. Those are practiced in individual sessions and groups — not only on a worksheet.",
+  },
+  {
+    q: "How is progress measured in CBT?",
+    a: "Against treatment goals: symptom change, daily functioning, and whether new skills show up outside the group room. Therapists may also use brief self-report measures. Feedback Informed Treatment means your goals and the working relationship are checked, not assumed.",
+  },
+  {
+    q: "Can CBT help if I have more than one diagnosis?",
+    a: "Yes. CBT has a research base for substance use and for anxiety, depression, and trauma-related symptoms that travel with it. The plan is built for the whole presentation.",
+  },
+  {
+    q: "Does insurance cover CBT in residential treatment?",
+    a: "CBT is delivered as part of our licensed detox and residential programs. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. We verify the specific card before admission.",
+  },
+];
 ---
-<Base title="Cognitive Behavioral Therapy for Addiction" description="CBT in residential treatment and detox step-down at Experience Recovery in Santa Ana — individual and group cognitive behavioral therapy for substance use." path="/services/cognitive-behavioral-therapy/" keywords="CBT rehab Orange County, cognitive behavioral therapy addiction Santa Ana">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / CBT</p>
-    <h1>Cognitive behavioral therapy</h1>
-    <p class="lede">CBT is one of the therapies we use because it has a research base for substance use and for the anxiety and depression that travel with it. It is not the only tool on campus.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>In residential treatment, CBT shows up in individual sessions and in groups: mapping triggers, testing the thoughts that make use feel inevitable, and practicing replacements that survive a Friday night in Orange County, not just a worksheet.</p>
-    <p>If someone needs a different frame — trauma-focused work, motivational interviewing, skills for emotional dysregulation — we use those too. Insurance reviewers understand CBT language; that is a documentation fact, not a reason to pretend it is the whole of treatment.</p>
-  </div></section>
+
+<Base
+  title="Cognitive Behavioral Therapy for Addiction"
+  description="CBT in Orange County at Experience Recovery — individual and group cognitive behavioral therapy inside in-network detox and residential treatment in Santa Ana."
+  path="/services/cognitive-behavioral-therapy/"
+  keywords="CBT rehab Orange County, cognitive behavioral therapy addiction Santa Ana, CBT therapy Orange County CA"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services/" },
+    { name: "CBT", path: "/services/cognitive-behavioral-therapy/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/services/">Services</a> / CBT</p>
+      <p class="kicker">Services</p>
+      <h1>Cognitive behavioral therapy in Orange County, CA</h1>
+      <p class="lede">CBT is one of the therapies we use because it has a research base for substance use and for the anxiety, depression, and eating-disorder thoughts that travel with it. It is not the only tool on campus.</p>
+      <nav class="jump" aria-label="On this page">
+        <a href="#what">What CBT is</a>
+        <a href="#how">How it works here</a>
+        <a href="#conditions">What it helps</a>
+        <a href="#programs">How it fits the day</a>
+        <a href="#questions">Questions</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="what">
+    <div class="wrap prose">
+      <h2>What is cognitive behavioral therapy (CBT)?</h2>
+      <p>CBT is a structured, goal-oriented psychotherapy. It treats thoughts, feelings, and behaviors as connected: change the thought that makes use feel inevitable, and you change what happens on a Friday night in Orange County — not only what happens on a worksheet. It is typically shorter-term than open-ended talk therapy. Duration here follows the residential stay and the person’s goals, not a generic 12–20 session brochure.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="how">
+    <div class="wrap prose">
+      <h2>How CBT works at Experience Recovery</h2>
+      <ol>
+        <li><strong>Psychoeducation</strong> — the link between thoughts, emotions, and use.</li>
+        <li><strong>Identifying and challenging thoughts</strong> — the ones that license the next drink or pill.</li>
+        <li><strong>Coping and problem-solving</strong> — cravings, stress, sleep, communication.</li>
+        <li><strong>Monitoring</strong> — adjust the plan when it is not working.</li>
+      </ol>
+      <h2 id="conditions">What conditions CBT can help with</h2>
+      <ul>
+        <li>Depression, anxiety, PTSD, and other co-occurring mental health concerns</li>
+        <li>Eating-disorder thoughts when they arrive with substance use</li>
+        <li>Alcohol use disorder</li>
+        <li>Drug use — prescription opioids, fentanyl, stimulants, benzodiazepines, mixed use</li>
+      </ul>
+      <h2>Benefits we actually mean</h2>
+      <p>Better coping, more usable emotion regulation, a less brutal self-story, support for co-occurring symptoms, and language that also makes sense in a utilization review. We will not promise CBT as a cure.</p>
+    </div>
+  </section>
+
+  <section class="section" id="programs">
+    <div class="wrap prose">
+      <h2>How CBT is integrated into our programs</h2>
+      <p>In <a href="/programs/residential/">residential treatment</a>, CBT shows up in individual sessions and in groups. Aftercare planning includes how those skills continue in IOP or outpatient therapy. If someone needs a different frame — trauma-focused work, motivational interviewing, DBT skills — we use those too.</p>
+      <h2>Does insurance cover CBT in Orange County?</h2>
+      <p>CBT is part of our licensed SUD programs, not a separate boutique add-on billed as a day spa. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Some cards are administered by Beacon / Carelon — we read the back of the card.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="questions">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

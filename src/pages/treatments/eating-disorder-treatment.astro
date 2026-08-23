@@ -1,18 +1,77 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const faq = [
+  {
+    q: "Is Experience Recovery a standalone eating-disorder hospital?",
+    a: "No. Eating-disorder work here is for adults whose disordered eating co-occurs with alcohol or drug use. If someone needs a dedicated eating-disorder residential bed, we will say so and help find it.",
+  },
+  {
+    q: "What types of eating disorders are assessed?",
+    a: "Anorexia nervosa, bulimia nervosa, binge-eating disorder, body dysmorphic concerns, and avoidant/restrictive food intake patterns can show up alongside substance use. Medical detox still comes first when withdrawal is unsafe.",
+  },
+];
 ---
 
-<Base title="Eating Disorder Treatment with Addiction Care" description="Eating disorder treatment integrated with addiction recovery in Santa Ana — for clients whose disordered eating co-occurs with substance use. Not a standalone ED hospital." path="/treatments/eating-disorder-treatment/" keywords="eating disorder treatment Orange County, dual diagnosis eating disorder rehab">
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Eating disorder treatment</p>
-    <p class="kicker">Treatments</p>
-    <h1>When eating and substances tangle</h1>
-    <p class="lede">We treat adults whose disordered eating co-occurs with alcohol or drug use. This is not a standalone eating-disorder hospital. If someone needs a dedicated ED residential bed, we will say so and help find it.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Restriction, binge-purge cycles, and stimulant or alcohol use often share a calendar. Medical detox still comes first when withdrawal is unsafe. Nutrition and medical monitoring sit alongside SUD therapy. Our chef and medical team coordinate meals as part of stabilization, not as a spa amenity.</p>
-    <p>Insurance: we are in-network with major PPO plans for our licensed SUD services. Eating-disorder benefits sometimes live on a different line of the policy. We verify both when the clinical picture includes both.</p>
-  </div></section>
+<Base
+  title="Eating Disorder Treatment"
+  description="Eating disorder treatment integrated with addiction recovery in Santa Ana — for clients whose disordered eating co-occurs with substance use. Not a standalone ED hospital."
+  path="/treatments/eating-disorder-treatment/"
+  keywords="eating disorder treatment Orange County, dual diagnosis eating disorder rehab, anorexia bulimia addiction Santa Ana"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Treatments", path: "/treatments/" },
+    { name: "Eating disorder treatment", path: "/treatments/eating-disorder-treatment/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Eating disorder treatment</p>
+      <p class="kicker">Treatments</p>
+      <h1>Eating disorder treatment in Orange County, CA</h1>
+      <p class="lede">When most people picture treatment, they picture drugs or alcohol. Eating disorders are also common — ANAD has cited roughly 28 million people in the U.S. — and they often travel with substance use, other mental health conditions, and real medical risk. We treat the overlap. We do not pretend this campus is a standalone eating-disorder hospital.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Eating disorders and mental health</h2>
+      <p>The American Psychiatric Association describes eating disorders as illnesses with severe disturbances in eating behavior plus the thoughts and emotions that go with them. Types include anorexia nervosa, bulimia nervosa, binge-eating disorder, body dysmorphic disorder, and avoidant/restrictive food intake disorder.</p>
+      <p>On this campus we also see depression, anxiety, PTSD, OCD, and insomnia in the same people. Dual diagnosis means a clinician assesses both the substance use and the other condition and builds one plan. Nutrition and medical monitoring sit next to SUD therapy. Meals are part of stabilization, not a spa amenity.</p>
+      <h2>What you receive here</h2>
+      <p>On-site residential treatment with 24/7 monitoring, licensed counselors, and medical staff; a structured day; group and individual therapy; and discharge planning that connects you to aftercare. Medical detox still comes first when alcohol, benzodiazepines, or other withdrawal is unsafe.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>Warning signs of eating disorders</h2>
+      <ul>
+        <li>A sharp change in attitude toward food or the body</li>
+        <li>Food rituals, dieting, or noticeable weight loss used as control</li>
+        <li>Body checking</li>
+        <li>Extreme mood swings and social withdrawal</li>
+        <li>Gastrointestinal problems, poor concentration, sleepiness</li>
+        <li>Dizziness on standing; changes in hair, nails, or skin</li>
+      </ul>
+      <p>If you are approaching someone, stick to what you have observed, stay calm, and listen. If they refuse a facility, keep the conversation open and offer to research options with them. Do not use this page as a diagnosis.</p>
+      <h2>Who can have an eating disorder</h2>
+      <p>Athletes, veterans, adolescents, people in larger bodies, and people with autism are all represented in the published literature. The live site’s own page notes higher rates of body dysmorphia in some military samples and high rates of crash dieting among adolescent girls. Those numbers are reasons to take the presentation seriously — not a claim that every person in those groups needs this campus.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Insurance</h2>
+        <p>We are in-network with major PPO plans for our licensed substance-use services. Eating-disorder benefits sometimes live on a different line of the policy. We verify both when the clinical picture includes both.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>

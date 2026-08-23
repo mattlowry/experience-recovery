@@ -12,6 +12,9 @@ interface Props {
   image?: string;
   keywords?: string;
   faq?: { q: string; a: string }[];
+  breadcrumbs?: { name: string; path: string }[];
+  itemList?: { name: string; path: string }[];
+  howTo?: { name: string; description?: string; steps: { name: string; text: string }[] };
   noindex?: boolean;
 }
 

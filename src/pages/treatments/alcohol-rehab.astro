@@ -1,21 +1,130 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
 const faq = [
-  { q: "Does insurance cover alcohol detox in Orange County?", a: "Most commercial PPO plans cover medically necessary alcohol withdrawal management at an in-network facility. Alcohol withdrawal can be dangerous; medical detox is a clinical recommendation, not an amenity." },
+  {
+    q: "Does insurance cover alcohol rehab in Orange County?",
+    a: "Most commercial PPO plans cover medically necessary alcohol detox and residential treatment at an in-network facility. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. We verify deductible, coinsurance, and authorization before admission.",
+  },
+  {
+    q: "Why is medical alcohol detox necessary?",
+    a: "Alcohol withdrawal can include seizures and delirium tremens. Daily drinkers, people with prior seizures or DTs, and anyone mixing alcohol with benzodiazepines should not treat home detox as a plan.",
+  },
 ];
 ---
 
-<Base title="Alcohol Rehab in Orange County" description="Medically supervised alcohol detox and residential treatment in Santa Ana. In-network PPO alcohol rehab for Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE." path="/treatments/alcohol-rehab/" keywords="alcohol rehab Orange County, alcohol detox Santa Ana, in network alcohol treatment Southern California" faq={faq}>
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Alcohol rehab</p>
-    <p class="kicker">Treatments</p>
-    <h1>Alcohol rehab in Orange County</h1>
-    <p class="lede">Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care. For adults whose drinking has outrun willpower, work, and home.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p>Alcohol withdrawal is a medical event. Daily drinkers, people with prior seizures or DTs, and anyone mixing alcohol with benzodiazepines should not treat “detox at home” as a plan. We monitor withdrawal and medicate when the physician orders it, then we move into the clinical work that actually changes the pattern.</p>
-    <p>Related: <a href="/detox/alcohol-detox/">alcohol detox</a>, <a href="/programs/residential/">residential treatment</a>, <a href="/blog/alcohol-detox-orange-county-ppo/">PPO coverage for alcohol detox</a>.</p>
-  </div></section>
-  <CtaBand />
+<Base
+  title="Alcohol Rehab in Orange County"
+  description="Medically supervised alcohol detox and residential treatment in Santa Ana. In-network PPO alcohol rehab for Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE."
+  path="/treatments/alcohol-rehab/"
+  keywords="alcohol rehab Orange County, alcohol detox Santa Ana, alcohol use disorder treatment California, in network alcohol treatment"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Treatments", path: "/treatments/" },
+    { name: "Alcohol rehab", path: "/treatments/alcohol-rehab/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Alcohol rehab</p>
+      <p class="kicker">Treatments</p>
+      <h1>Alcohol rehab in Orange County, CA</h1>
+      <p class="lede">Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care. For adults whose drinking has outrun willpower, work, and home — and for the families watching it.</p>
+      <nav class="jump" aria-label="On this page">
+        <a href="#what">What alcohol addiction is</a>
+        <a href="#causes">Causes</a>
+        <a href="#signs">Signs</a>
+        <a href="#approach">How we treat it</a>
+        <a href="#levels">Levels of care</a>
+        <a href="#therapies">Therapies</a>
+        <a href="#insurance">Insurance</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="what">
+    <div class="wrap prose">
+      <h2>What is alcohol addiction?</h2>
+      <p>Alcohol use disorder is a medical condition marked by an urge to drink that continues despite harm to health, work, and relationships. Physically it can damage the liver, heart, and nervous system. Psychologically it can travel with depression, anxiety, and cognitive impairment. The effects do not stay with one person.</p>
+      <h2>Alcohol misuse, abuse, and addiction</h2>
+      <p>Misuse is drinking past recommended limits or in unsafe situations — binge drinking, driving — without necessarily meeting criteria for addiction. Abuse is a pattern of excess that is already costing health or work. Addiction includes loss of control, compulsive use, and withdrawal when alcohol is removed. Those distinctions matter for what kind of help is useful. They are not a way to talk someone out of a medical detox they need.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="causes">
+    <div class="wrap prose">
+      <h2>Causes of alcohol addiction</h2>
+      <ul>
+        <li>Family history and genetic predisposition</li>
+        <li>Early exposure to alcohol</li>
+        <li>Cultural norms that treat daily drinking as ordinary</li>
+        <li>Financial or social stress used as a reason to drink</li>
+        <li>Anxiety, depression, or bipolar disorder treated with alcohol</li>
+        <li>Trauma and other adverse events</li>
+        <li>Coping habits that have no other tool</li>
+      </ul>
+      <h2>Alcohol addiction in Orange County</h2>
+      <p>SAMHSA has long identified alcohol as the most common substance-use problem in Orange County. Local public-health reporting has also shown alcohol-related hospitalizations and, in recent years, rising alcohol-involved deaths — including a sharp increase around 2019–2020. Coastal and south-county communities have shown higher hospitalization rates in some of those analyses. The point is not a scare statistic. It is that this is a local medical problem, not a rare one.</p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="wrap prose">
+      <h2>Signs and symptoms of alcohol addiction</h2>
+      <ul>
+        <li>Needing more alcohol for the same effect (tolerance)</li>
+        <li>Tremors, anxiety, or irritability when not drinking (withdrawal)</li>
+        <li>Drinking more, or longer, than intended</li>
+        <li>Neglecting work, family, or other obligations</li>
+        <li>Putting alcohol ahead of relationships and health</li>
+        <li>Continuing despite clear harm</li>
+        <li>Repeated failed attempts to cut back</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="approach">
+    <div class="wrap prose">
+      <h2>Our approach to alcohol rehab</h2>
+      <p>Treatment starts with an assessment: how much, how often, last drink, prior withdrawals (including seizures or DTs), medications, mental health history, and what home looks like. That conversation, plus a history and physical on arrival, drives the plan. Evidence-informed therapies address the physical, emotional, and mental sides of alcohol use. We do not sell a single length-of-stay package as a cure.</p>
+      <h2 id="levels">Levels of care</h2>
+      <h3>Detox</h3>
+      <p>Withdrawal management with 24/7 monitoring. For the first seventy-two hours after admission, nursing checks are frequent — the program’s own materials specify every thirty minutes in that window — because early alcohol withdrawal is when seizures and DTs are most dangerous. See <a href="/detox/alcohol-detox/">alcohol detox</a>.</p>
+      <h3>Residential treatment</h3>
+      <p>After you are medically stable, you live on campus: individual and group therapy, monitored care, and a structured day. Length is clinical and often concurrent-reviewed by the payer. See <a href="/programs/residential/">residential treatment</a>.</p>
+      <h3>Aftercare</h3>
+      <p>Relapse-prevention planning and referrals for the next step — IOP, outpatient therapy, recovery housing — start before discharge, not as a printed list on Friday. See <a href="/services/relapse-prevention/">relapse prevention</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="therapies">
+    <div class="wrap prose">
+      <h2>Therapies used in alcohol rehab</h2>
+      <ul>
+        <li><strong>CBT</strong> — thoughts and behaviors that keep drinking in place</li>
+        <li><strong>DBT skills</strong> — emotion regulation and interpersonal skills</li>
+        <li><strong>Family therapy</strong> — when the household is part of the work</li>
+        <li><strong>Individual and group therapy</strong></li>
+        <li><strong>Trauma-informed work</strong> — including Seeking Safety when it fits</li>
+        <li><strong>Holistic supports</strong> — movement, mindfulness, nutrition; they do not replace medical detox</li>
+      </ul>
+      <h2>Why people choose a licensed OC program</h2>
+      <p>Medical supervision during withdrawal. Individualized plans. Evidence-informed groups. A recovery community on campus. Continuation of care after the bed. Joint Commission accreditation and a DHCS license you can verify. Comfort is not the opposite of clinical seriousness.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="insurance">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Does insurance cover alcohol rehab in Orange County?</h2>
+        <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Some behavioral-health benefits are administered by Beacon / Carelon — we read the back of the card. In-network is a contracted rate, not a $0 bill.</p>
+      </div>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
+  <CtaBand title="Begin alcohol rehab with a verification call" />
 </Base>

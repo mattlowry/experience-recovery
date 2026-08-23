@@ -1,0 +1,82 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
+const pages = [
+  { href: "/detox/alcohol-detox/", title: "Alcohol detox", text: "Seizure-risk withdrawal management. Frequent nursing checks in the first 72 hours." },
+  { href: "/detox/drug-detox/", title: "Drug detox", text: "Opioids, stimulants, benzodiazepines, and mixed use — one medical team." },
+  { href: "/detox/heroin-detox/", title: "Heroin & opioid detox", text: "Heroin, fentanyl, and prescription opioids. MAT when clinically appropriate." },
+  { href: "/programs/detox/", title: "Detox program", text: "The full program page: what detox is, what it is not, and what comes next." },
+];
+
+const faq = [
+  {
+    q: "Why won’t home detox work?",
+    a: "Alcohol and benzodiazepine withdrawal can include seizures. Opioid withdrawal is rarely fatal on its own but is severe, and leaving a home detox with a lowered tolerance is a common overdose path. Medical supervision exists for that reason.",
+  },
+  {
+    q: "Can detox alone lead to recovery?",
+    a: "No. Detox clears the substance. Lasting change needs residential treatment and a next step after campus. Detox without a next level of care is a medical event, not a treatment episode.",
+  },
+  {
+    q: "Why a treatment facility instead of a hospital?",
+    a: "Hospitals stabilize emergencies. This campus is licensed for residential detoxification and for the residential treatment that follows, with addiction-focused medical and clinical staff on site. If someone is seizing or not breathing, call 911 first.",
+  },
+];
+---
+
+<Base
+  title="Medical Detox in Orange County"
+  description="Medically supervised drug and alcohol detox in Santa Ana. 24/7 withdrawal management, then residential treatment on the same campus. In-network PPO detox for Southern California."
+  path="/detox/"
+  keywords="medical detox Orange County, drug and alcohol detox Santa Ana, in network detox PPO"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Detox", path: "/detox/" },
+  ]}
+  itemList={pages.map((p) => ({ name: p.title, path: p.href }))}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Detox</p>
+      <p class="kicker">Medical detox</p>
+      <h1>Detox at Experience Recovery</h1>
+      <p class="lede">The first step for many people. 24-hour availability, a fast insurance check, and an admissions process that starts with a real conversation — not a form that promises a bed you do not have.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      {pages.map((p) => (
+        <a class="card index-card" href={p.href}>
+          <h2>{p.title}</h2>
+          <p>{p.text}</p>
+          <span class="more">Open →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>Why home-based detox won’t work</h2>
+      <p>Withdrawal can include fever, nausea, aches, and fatigue. Alcohol and benzodiazepines can include seizures. Doing that alone, with the substance still in the house, is how people return to a dose their body can no longer tolerate. A licensed facility exists so that does not happen off-camera.</p>
+      <h2>What to expect</h2>
+      <p>You meet a physician for an evaluation and a plan. Then 24/7 monitored care, medications when ordered, and science-based protocols for opioids, stimulants, methadone tapers when indicated, and benzodiazepines. Alcohol detox includes frequent checks in the first seventy-two hours. Length is often three to five days; some people need ten to fifteen. After detox, the next step is on-site residential care — not a ride home with a pamphlet.</p>
+      <h2>Facility versus hospital</h2>
+      <p>Hospitals treat the emergency. We treat withdrawal and then the residential work that follows, with addiction specialists, nursing, and counselors on one campus. If the picture is a medical emergency, 911 is still the first call.</p>
+      <h2>Can detox alone lead to recovery?</h2>
+      <p>No. Detox is followed by residential treatment (often authorized in 30- to 90-day windows) and aftercare planning. We will not claim that “going cold turkey” is a life plan.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
+  <CtaBand />
+</Base>

@@ -1,7 +1,30 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
 import { campusPhotos, site } from "../../data/site";
+
+const links = [
+  { href: "/about-us/our-approach/", title: "Our approach", text: "Medical detox, evidence-informed residential therapy, ASAM decisions, and what we will not promise." },
+  { href: "/about-us/our-campus/", title: "Our campus", text: "Photographs of 3919 W. Hazard Ave. — courtyard, living rooms, the actual building." },
+  { href: "/about-us/our-team/", title: "Our team", text: "Current staff. Licensed practitioners with California BPC § 680.5 disclosures." },
+  { href: "/facility-licensure/", title: "Licensure", text: `DHCS ${site.dhcsLicense} · Joint Commission HCO ${site.jointCommissionHco}` },
+];
+
+const faq = [
+  {
+    q: "Who operates Experience Recovery?",
+    a: "Experience Recovery Detox & Residential, LLC, doing business as Experience Recovery. Treatment is provided at 3919 W. Hazard Ave., Santa Ana, CA 92703.",
+  },
+  {
+    q: "Is Experience Recovery licensed and accredited?",
+    a: "Yes. Licensed by California DHCS (300011GP, expires 03/31/2027) for residential detoxification and treatment with IMS. Accredited by The Joint Commission (HCO ID 610069).",
+  },
+  {
+    q: "What does DHCS IMS mean?",
+    a: "Incidental Medical Services authorization allows on-site medical care, including supervised withdrawal management, at this licensed residential facility.",
+  },
+];
 ---
 
 <Base
@@ -9,30 +32,90 @@ import { campusPhotos, site } from "../../data/site";
   description="Experience Recovery Detox & Residential, LLC is a Joint Commission–accredited, DHCS-licensed treatment program in Santa Ana, Orange County. In-network PPO care for Southern California."
   path="/about-us/"
   keywords="about Experience Recovery, Santa Ana rehab, DHCS 300011GP, Joint Commission HCO 610069"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about-us/" },
+  ]}
+  itemList={links.map((l) => ({ name: l.title, path: l.href }))}
 >
   <section class="page-hero">
     <div class="wrap">
       <p class="breadcrumbs"><a href="/">Home</a> / About</p>
-      <p class="kicker">About</p>
+      <p class="kicker">About · {site.legalName}</p>
       <h1>A treatment program that can be checked</h1>
-      <p class="lede">Adults whose lives are being affected by alcohol, opioids, benzodiazepines, stimulants, and mixed use. Medically supervised detox and residential treatment on a campus you can visit on a map and verify on a DHCS listing.</p>
+      <p class="lede">Adults whose lives are being affected by alcohol, opioids, benzodiazepines, stimulants, and mixed use. Medically supervised detox and residential treatment on a campus you can put on a map and verify on a DHCS listing.</p>
     </div>
   </section>
+
+  <div class="cred-rail">
+    <article>
+      <strong>DHCS {site.dhcsLicense}</strong>
+      <span>Expires {site.dhcsExpires} · IMS</span>
+    </article>
+    <article>
+      <strong>Joint Commission</strong>
+      <span>HCO ID {site.jointCommissionHco}</span>
+    </article>
+    <article>
+      <strong>ASAM Criteria</strong>
+      <span>Level-of-care decisions</span>
+    </article>
+    <article>
+      <strong>{site.city}</strong>
+      <span>{site.street}</span>
+    </article>
+  </div>
+
   <section class="section">
     <div class="wrap grid-2">
       <div class="prose">
         <h2>Why this work</h2>
-        <p>Addiction and mental health concerns rarely arrive cleanly. They tangle with grief, trauma, family history, financial stress, and physical illness. People deserve care that takes the whole picture seriously — and that bills the PPO they already pay for.</p>
+        <p>Addiction and mental health concerns rarely arrive cleanly. They tangle with grief, trauma, family history, financial stress, and physical illness. We started this program because people deserve care that takes the whole picture seriously — including the PPO they already pay for.</p>
+        <h2>What we treat</h2>
+        <p>Adults affected by alcohol, opioids (including heroin and fentanyl), benzodiazepines, stimulants (cocaine, methamphetamine, prescription stimulants), and polysubstance use. Co-occurring anxiety, depression, PTSD, and bipolar disorder are assessed in the same admission.</p>
         <h2>What we do</h2>
-        <p>Detox, residential treatment, and a family program. Evidence-informed therapies, trauma-aware practice, and medication-assisted treatment when clinically appropriate. Aftercare planning starts on admission, not at discharge.</p>
-        <h2>Licensure</h2>
-        <p>Joint Commission accredited (HCO ID {site.jointCommissionHco}). Licensed by California DHCS as an IMS provider — license {site.dhcsLicense}, expires {site.dhcsExpires}. We use ASAM Criteria for level-of-care decisions.</p>
-        <p><a href="/about-us/our-approach/">Approach</a> · <a href="/about-us/our-campus/">Campus</a> · <a href="/about-us/our-team/">Team</a> · <a href="/facility-licensure/">Full licensure</a></p>
+        <p>Medically supervised detox, residential treatment, and a dedicated family program. Evidence-informed therapies, trauma-aware practice, and medication-assisted treatment when clinically appropriate. Aftercare planning starts on admission, not the week of discharge.</p>
+        <h2>Mission</h2>
+        <p>Ethical, professional healthcare for individuals and families. We intend to be a straightforward ally — including when the right next step is not this campus.</p>
       </div>
-      <figure class="photo-frame">
-        <img src={campusPhotos[0].src} alt={campusPhotos[0].alt} />
-        <figcaption>{campusPhotos[0].caption}</figcaption>
+      <figure class="photo-frame photo-edit">
+        <img src={campusPhotos[3].src} alt={campusPhotos[3].alt} width="900" height="675" />
+        <figcaption>{campusPhotos[3].caption} — campus photograph, color-graded for this site</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>Licensure and accreditation</h2>
+      <p>Experience Recovery operates under the licensing and oversight legitimate addiction treatment in California requires:</p>
+      <ul>
+        <li><strong>The Joint Commission</strong> — accredited for behavioral health care (HCO ID {site.jointCommissionHco}). Accreditation is a recognized U.S. healthcare standard; renewal requires regular on-site survey of clinical, administrative, and safety practices.</li>
+        <li><strong>California DHCS</strong> — licensed as an Incidental Medical Services (IMS) provider (license {site.dhcsLicense}, expires {site.dhcsExpires}), which allows on-site medical care including supervised withdrawal management. <a href={site.dhcsVerify}>Verify on DHCS</a>.</li>
+        <li><strong>ASAM Criteria</strong> — we use the American Society of Addiction Medicine’s level-of-care criteria to decide detox versus residential, not a brochure package.</li>
+      </ul>
+      <h2>Where we are</h2>
+      <p>The campus is in Orange County — close enough to John Wayne Airport for people flying in, on the 55 / 5 / 22 / 405 grid for Irvine, Anaheim, Huntington Beach, and Long Beach. Far enough from a given neighborhood that some clients can put down the daily emergency long enough to do the work.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      {links.map((l) => (
+        <a class="card index-card" href={l.href}>
+          <h2>{l.title}</h2>
+          <p>{l.text}</p>
+          <span class="more">Open →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
     </div>
   </section>
   <CtaBand />

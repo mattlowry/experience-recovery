@@ -4,7 +4,18 @@ import CtaBand from "../../../components/CtaBand.astro";
 import { team, departments } from "../../../data/team";
 ---
 
-<Base title="Our Team" description="Current Experience Recovery staff — medical, clinical, operations, case management, and behavioral health. Licensed practitioners listed with California credentials." path="/about-us/our-team/" keywords="Experience Recovery team, Rafael Penunuri MD, Lizabeth Schroeder LCSW">
+<Base
+  title="Our Team"
+  description="Current Experience Recovery staff — medical, clinical, operations, case management, and behavioral health. Licensed practitioners listed with California credentials."
+  path="/about-us/our-team/"
+  keywords="Experience Recovery team, Rafael Penunuri MD, Lizabeth Schroeder LCSW"
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about-us/" },
+    { name: "Our team", path: "/about-us/our-team/" },
+  ]}
+  itemList={team.map((m) => ({ name: m.name, path: `/about-us/our-team/${m.slug}/` }))}
+>
   <section class="page-hero"><div class="wrap">
     <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / Team</p>
     <h1>Current staff</h1>
@@ -16,10 +27,11 @@ import { team, departments } from "../../../data/team";
         <h2>{dept}</h2>
         <div class="grid-3">
           {team.filter((m) => m.department === dept).map((m) => (
-            <article class="card">
-              <h3><a href={`/about-us/our-team/${m.slug}/`}>{m.name}</a></h3>
+            <a class="card index-card" href={`/about-us/our-team/${m.slug}/`}>
+              <h3>{m.name}</h3>
               <p>{m.role}</p>
-            </article>
+              <span class="more">Profile →</span>
+            </a>
           ))}
         </div>
       </div>

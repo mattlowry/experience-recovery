@@ -1,30 +1,77 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+
 const faq = [
-  { q: "How long does detox last?", a: "It depends on substance, dose, duration, and medical factors. Plan on several days, with the goal of a stable handoff into residential treatment. Alcohol and benzo detox is timed to withdrawal risk, not a marketing package." },
-  { q: "Is detox covered by PPO insurance?", a: "Medically necessary withdrawal management is commonly a covered SUD benefit on commercial PPO plans. We verify Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE before admission." },
+  {
+    q: "How long does detox last?",
+    a: "It depends on substance, dose, duration, and medical factors. Plan on several days — often in a 3–10 day range — with the goal of a stable handoff into residential treatment. Alcohol and benzo detox is timed to withdrawal risk, not a marketing package.",
+  },
+  {
+    q: "Is detox covered by PPO insurance?",
+    a: "Medically necessary withdrawal management is commonly a covered SUD benefit on commercial PPO plans. We verify Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE before admission.",
+  },
+  {
+    q: "Is detox the same as addiction treatment?",
+    a: "No. Detox is stabilization. The clinical work continues in residential treatment after you are medically stable.",
+  },
 ];
 ---
 
-<Base title="Drug & Alcohol Detox in Orange County" description="Medically supervised detox in Santa Ana — alcohol, opioids, benzodiazepines, stimulants, and polysubstance use. In-network PPO withdrawal management for Southern California." path="/programs/detox/" keywords="detox Orange County, medical detox Santa Ana, in network alcohol detox PPO" faq={faq}>
-  <section class="page-hero"><div class="wrap">
-    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Detox</p>
-    <p class="kicker">Programs</p>
-    <h1>Medically supervised detox</h1>
-    <p class="lede">Withdrawal management is the safe first step for many people in early recovery. It is not addiction treatment by itself. The clinical work continues in residential care after you are stable.</p>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <h2>What we provide</h2>
-    <ul>
-      <li>24/7 medical supervision during active withdrawal</li>
-      <li>Medications to manage symptoms when clinically appropriate</li>
-      <li>Vitals monitoring and nursing assessment</li>
-      <li>Clinical planning for the next level of care before discharge from detox</li>
-    </ul>
-    <h2>Substances commonly treated</h2>
-    <p>Alcohol, opioids (heroin, fentanyl, prescription opioids), benzodiazepines, stimulants, and mixed use. We use CIWA and COWS when those scales fit the presentation.</p>
-    <p>Related: <a href="/detox/alcohol-detox/">alcohol detox</a>, <a href="/detox/heroin-detox/">heroin / opioid detox</a>, <a href="/detox/drug-detox/">drug detox</a>.</p>
-  </div></section>
+<Base
+  title="Drug & Alcohol Detox in Orange County"
+  description="Medically supervised detox in Santa Ana — alcohol, opioids, benzodiazepines, stimulants, and polysubstance use. In-network PPO withdrawal management for Southern California."
+  path="/programs/detox/"
+  keywords="detox Orange County, medical detox Santa Ana, in network alcohol detox PPO, drug detox program"
+  faq={faq}
+  breadcrumbs={[
+    { name: "Home", path: "/" },
+    { name: "Programs", path: "/programs/" },
+    { name: "Detox", path: "/programs/detox/" },
+  ]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Detox</p>
+      <p class="kicker">Programs</p>
+      <h1>Drug & alcohol detox</h1>
+      <p class="lede">Medically supervised withdrawal management — the safe first step for many people in early recovery. It is not addiction treatment by itself. The clinical work continues in residential care after you are stable.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What detox is</h2>
+      <p>Detox is the period when the body clears a substance. Depending on what has been used and for how long, withdrawal can be uncomfortable, medically risky, or — with alcohol and benzodiazepines — dangerous without medical supervision.</p>
+      <h2>What detox is not</h2>
+      <p>Detox alone is not addiction treatment. It is a stabilization step. The work that changes the pattern happens in <a href="/programs/residential/">residential treatment</a> afterward.</p>
+      <h2>What we provide</h2>
+      <ul>
+        <li>24/7 medical supervision during active withdrawal</li>
+        <li>Medications to manage symptoms when clinically appropriate</li>
+        <li>Vitals monitoring and nursing assessment</li>
+        <li>CIWA and COWS when those scales fit</li>
+        <li>A plan for the next level of care before detox discharge</li>
+      </ul>
+      <h2>Substances commonly treated</h2>
+      <ul>
+        <li>Alcohol — see <a href="/detox/alcohol-detox/">alcohol detox</a></li>
+        <li>Opioids (heroin, fentanyl, prescription opioids) — see <a href="/detox/heroin-detox/">heroin detox</a></li>
+        <li>Benzodiazepines</li>
+        <li>Stimulants</li>
+        <li>Polysubstance use — see <a href="/detox/drug-detox/">drug detox</a></li>
+      </ul>
+      <h2>How long</h2>
+      <p>Length depends on substance, dose, duration, and medical factors. Plan on several days, with a stable handoff into residential treatment. Some people clear in three to five days; others need longer. We will not invent a brochure number.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
   <CtaBand />
 </Base>
