@@ -1,0 +1,82 @@
+---
+import Logo from "./Logo.astro";
+import { site } from "../data/site";
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <Logo />
+    <nav class="nav" aria-label="Primary">
+      <details>
+        <summary>About</summary>
+        <div class="nav-panel">
+          <a href="/about-us/">About us</a>
+          <a href="/about-us/our-approach/">Our approach</a>
+          <a href="/about-us/our-campus/">Our campus</a>
+          <a href="/about-us/our-team/">Our team</a>
+        </div>
+      </details>
+      <details>
+        <summary>Treatments</summary>
+        <div class="nav-panel">
+          <a href="/treatments/">All treatments</a>
+          <a href="/treatments/drug-rehab/">Drug rehab</a>
+          <a href="/treatments/alcohol-rehab/">Alcohol rehab</a>
+          <a href="/treatments/eating-disorder-treatment/">Eating disorder treatment</a>
+          <a href="/treatments/lgbtq-drug-rehab/">LGBTQ drug rehab</a>
+        </div>
+      </details>
+      <details>
+        <summary>Programs</summary>
+        <div class="nav-panel">
+          <a href="/programs/">All programs</a>
+          <a href="/programs/detox/">Detox</a>
+          <a href="/programs/residential/">Residential</a>
+          <a href="/programs/family/">Family program</a>
+        </div>
+      </details>
+      <details>
+        <summary>Insurance</summary>
+        <div class="nav-panel">
+          <a href="/insurance/">In-network plans</a>
+          <a href="/insurance/ppo/">PPO plans</a>
+          <a href="/insurance/anthem/">Anthem</a>
+          <a href="/insurance/blue-shield/">Blue Shield</a>
+          <a href="/insurance/united-healthcare/">UnitedHealthcare</a>
+          <a href="/insurance/aetna/">Aetna</a>
+          <a href="/insurance/cigna/">Cigna</a>
+          <a href="/insurance/humana/">Humana</a>
+          <a href="/insurance/tricare/">TRICARE</a>
+        </div>
+      </details>
+      <a href="/locations/">Locations</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a class="phone-link" href={site.phoneHref}>{site.phone}</a>
+      <a class="btn btn-primary" href="/insurance/">Verify insurance</a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+  </div>
+  <nav class="mobile-nav" data-mobile-nav hidden>
+    <a href="/about-us/">About</a>
+    <a href="/treatments/">Treatments</a>
+    <a href="/programs/">Programs</a>
+    <a href="/insurance/">Insurance</a>
+    <a href="/locations/">Southern California</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+    <a href={site.phoneHref}>Call {site.phone}</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.querySelector("[data-menu-toggle]");
+  const nav = document.querySelector("[data-mobile-nav]");
+  btn?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open");
+    nav?.toggleAttribute("hidden", !open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

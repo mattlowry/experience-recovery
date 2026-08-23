@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, addressLine } from "../data/site";
+---
+
+<Base title="Website Disclosures & Advertising" description="Advertising, insurance, photography, and marketing disclosures for Experience Recovery Detox & Residential, LLC." path="/website-disclosures/">
+  <section class="page-hero"><div class="wrap">
+    <h1>Website disclosures & advertising</h1>
+    <p class="lede">Effective May 26, 2026. Updated August 23, 2026 for this site rebuild.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <h2>Who we are</h2>
+    <p>Legal name: {site.legalName}. Doing business as: Experience Recovery. Physical address where treatment services are provided: {addressLine}.</p>
+    <h2>Services</h2>
+    <p>We provide substance use disorder and co-occurring mental health treatment for adults, which may include medically supervised withdrawal management, residential treatment, and related clinical services, as licensed and staffed. Availability depends on clinical assessment, medical necessity, and capacity.</p>
+    <h2>Licensure</h2>
+    <p>DHCS license {site.dhcsLicense}, expires {site.dhcsExpires}. Joint Commission HCO ID {site.jointCommissionHco}. Details: <a href="/facility-licensure/">facility licensure</a>.</p>
+    <h2>Advertising</h2>
+    <p>We may advertise through search engines, directories, and social media. Paid ads are identified according to platform rules. We do not engage in patient brokering, sale of patient leads, or unlawful kickbacks. We do not guarantee cures or success rates.</p>
+    <h2>Insurance and cost</h2>
+    <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Coverage varies by plan and clinical criteria. Website content is not a contract of insurance payment.</p>
+    <h2>Photographs</h2>
+    <p>Unless labeled otherwise, photographs depict our Santa Ana treatment campus. They are not a guarantee of a specific room assignment.</p>
+  </div></section>
+</Base>

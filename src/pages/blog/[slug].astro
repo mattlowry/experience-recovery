@@ -1,0 +1,38 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+import { posts } from "../../data/blog";
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+---
+
+<Base
+  title={post.title}
+  description={post.description}
+  path={`/blog/${post.slug}/`}
+  type="article"
+  keywords={post.keywords}
+  faq={post.faqs}
+>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / {post.title}</p>
+    <p class="kicker">{post.category} · {post.date}</p>
+    <h1>{post.title}</h1>
+    <p class="lede">{post.description}</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <Fragment set:html={post.body} />
+    {post.faqs && post.faqs.length > 0 && (
+      <>
+        <h2>Questions</h2>
+        <FaqList items={post.faqs} />
+      </>
+    )}
+  </div></section>
+  <CtaBand />
+</Base>

@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import { posts } from "../../data/blog";
+---
+
+<Base
+  title="Recovery Blog"
+  description="Guides on in-network PPO rehab, medical detox, dual diagnosis, and insurance verification in Orange County and Southern California."
+  path="/blog/"
+  keywords="Orange County rehab blog, PPO insurance detox, in network treatment Southern California"
+>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / Blog</p>
+    <h1>Notes from the work</h1>
+    <p class="lede">Insurance, detox, and clinical questions people in Southern California actually search. Older thin posts from the previous site are redirected to these pages where they duplicated each other.</p>
+  </div></section>
+  <section class="section"><div class="wrap grid-2">
+    {posts.map((post) => (
+      <article class="card">
+        <p class="kicker">{post.category} · {post.date}</p>
+        <h2><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
+        <p>{post.description}</p>
+      </article>
+    ))}
+  </div></section>
+</Base>

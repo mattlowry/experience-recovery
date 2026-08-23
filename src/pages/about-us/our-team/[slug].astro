@@ -1,0 +1,41 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CtaBand from "../../../components/CtaBand.astro";
+import { team } from "../../../data/team";
+
+export function getStaticPaths() {
+  return team.map((member) => ({ params: { slug: member.slug }, props: { member } }));
+}
+
+const { member } = Astro.props;
+---
+
+<Base
+  title={`${member.name} | ${member.role}`}
+  description={`${member.name}, ${member.role} at Experience Recovery in Santa Ana. ${member.summary}`}
+  path={`/about-us/our-team/${member.slug}/`}
+>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / <a href="/about-us/our-team/">Team</a> / {member.name}</p>
+    <p class="kicker">{member.department}</p>
+    <h1>{member.name}</h1>
+    <p class="lede">{member.role}</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <p>{member.summary}</p>
+    <p>A longer personal biography is in progress. For credentials and questions about licensure, call admissions or see the practitioner disclosure page.</p>
+    {member.license && (
+      <>
+        <h2>Health Care Practitioner Information</h2>
+        <ol>
+          <li>Name and license: {member.name} — {member.license.type}; California license/registration no. {member.license.number}{member.license.expires ? ` (expires ${member.license.expires})` : ""}.</li>
+          <li>Highest level of academic degree: {member.license.degree}.</li>
+          {member.license.supervision && <li>Board certification / supervision: {member.license.supervision}</li>}
+        </ol>
+        <p>Regulatory board: {member.license.board}. <a href="/health-care-practitioner-information/">View all licensed practitioners</a>.</p>
+      </>
+    )}
+    <p><a href="/about-us/our-team/">← All team members</a></p>
+  </div></section>
+  <CtaBand />
+</Base>

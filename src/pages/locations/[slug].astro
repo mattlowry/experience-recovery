@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+import { locations } from "../../data/locations";
+import { carriers, addressLine } from "../../data/site";
+
+export function getStaticPaths() {
+  return locations.map((location) => ({ params: { slug: location.slug }, props: { location } }));
+}
+
+const { location } = Astro.props;
+---
+
+<Base
+  title={location.title}
+  description={location.description}
+  path={`/locations/${location.slug}/`}
+  keywords={location.keywords}
+  faq={location.faqs}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/locations/">Locations</a> / {location.name}</p>
+      <p class="kicker">{location.county} · In-network</p>
+      <h1>Rehab for {location.name}</h1>
+      <p class="lede">{location.intro}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>Getting here from {location.name}</h2>
+        <p><strong>Drive time:</strong> {location.drive}</p>
+        <p>{location.local}</p>
+        <p>Campus address: {addressLine}. Admissions will send arrival instructions after benefits are verified. Do not come unconfirmed.</p>
+        <h2>Insurance from {location.name}</h2>
+        <p>We are in-network with:</p>
+        <ul>
+          {carriers.map((c) => (
+            <li><a href={`/insurance/${c.slug}/`}>{c.name}</a></li>
+          ))}
+        </ul>
+        <p>PPO and similar commercial plans are the most straightforward path. <a href="/insurance/ppo/">How PPO verification works</a>.</p>
+        <h2>Questions</h2>
+        <FaqList items={location.faqs} />
+      </div>
+      <aside class="card">
+        <h3>Related</h3>
+        <p><a href="/programs/detox/">Detox</a><br /><a href="/programs/residential/">Residential</a><br /><a href="/insurance/">Verify insurance</a><br /><a href="/contact/">Contact</a></p>
+      </aside>
+    </div>
+  </section>
+  <CtaBand title={`Talk through a ${location.name} admission`} />
+</Base>

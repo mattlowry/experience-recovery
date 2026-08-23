@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { site, addressLine } from "../data/site";
+---
+
+<Base
+  title="Contact Admissions"
+  description="Call Experience Recovery admissions at (866) 514-7282 or send a confidential message. 3919 W. Hazard Ave., Santa Ana, CA. In-network insurance verification for Southern California."
+  path="/contact/"
+  keywords="Experience Recovery phone, admissions Santa Ana rehab, verify insurance Orange County"
+>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / Contact</p>
+    <h1>Contact admissions</h1>
+    <p class="lede">A confidential conversation. We’ll talk through the situation and a level of care that fits — even if that’s not us.</p>
+  </div></section>
+  <section class="section"><div class="wrap grid-2">
+    <div>
+      <h2>Call</h2>
+      <p><a class="phone-link" href={site.phoneHref}>{site.phone}</a><br />Talk to a real person. Calls are confidential.</p>
+      <h2>Campus</h2>
+      <p>{site.legalName}<br />{addressLine}<br /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <h2>In an emergency</h2>
+      <ul>
+        <li>Immediate medical emergency: 911</li>
+        <li>Suicide & Crisis Lifeline: 988</li>
+        <li>SAMHSA National Helpline: 1-800-662-HELP (4357)</li>
+      </ul>
+    </div>
+    <ContactForm />
+  </div></section>
+</Base>

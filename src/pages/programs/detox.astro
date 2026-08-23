@@ -1,0 +1,30 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+const faq = [
+  { q: "How long does detox last?", a: "It depends on substance, dose, duration, and medical factors. Plan on several days, with the goal of a stable handoff into residential treatment. Alcohol and benzo detox is timed to withdrawal risk, not a marketing package." },
+  { q: "Is detox covered by PPO insurance?", a: "Medically necessary withdrawal management is commonly a covered SUD benefit on commercial PPO plans. We verify Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE before admission." },
+];
+---
+
+<Base title="Drug & Alcohol Detox in Orange County" description="Medically supervised detox in Santa Ana — alcohol, opioids, benzodiazepines, stimulants, and polysubstance use. In-network PPO withdrawal management for Southern California." path="/programs/detox/" keywords="detox Orange County, medical detox Santa Ana, in network alcohol detox PPO" faq={faq}>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/programs/">Programs</a> / Detox</p>
+    <p class="kicker">Programs</p>
+    <h1>Medically supervised detox</h1>
+    <p class="lede">Withdrawal management is the safe first step for many people in early recovery. It is not addiction treatment by itself. The clinical work continues in residential care after you are stable.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <h2>What we provide</h2>
+    <ul>
+      <li>24/7 medical supervision during active withdrawal</li>
+      <li>Medications to manage symptoms when clinically appropriate</li>
+      <li>Vitals monitoring and nursing assessment</li>
+      <li>Clinical planning for the next level of care before discharge from detox</li>
+    </ul>
+    <h2>Substances commonly treated</h2>
+    <p>Alcohol, opioids (heroin, fentanyl, prescription opioids), benzodiazepines, stimulants, and mixed use. We use CIWA and COWS when those scales fit the presentation.</p>
+    <p>Related: <a href="/detox/alcohol-detox/">alcohol detox</a>, <a href="/detox/heroin-detox/">heroin / opioid detox</a>, <a href="/detox/drug-detox/">drug detox</a>.</p>
+  </div></section>
+  <CtaBand />
+</Base>

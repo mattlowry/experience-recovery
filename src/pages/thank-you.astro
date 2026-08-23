@@ -1,0 +1,12 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base title="Message received" description="Your message was sent to Experience Recovery admissions. Call (866) 514-7282 if you need a faster response." path="/thank-you/" noindex={true}>
+  <section class="page-hero"><div class="wrap">
+    <h1>We have the message</h1>
+    <p class="lede">Admissions will respond within one business day. If someone needs to talk now, call <a href={site.phoneHref}>{site.phone}</a>. Emergencies: 911. Crisis: 988.</p>
+    <p><a href="/">Back to the homepage</a></p>
+  </div></section>
+</Base>

@@ -1,0 +1,74 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { insurancePlans } from "../../data/insurance";
+import { insuranceDisclaimer, campusPhotos } from "../../data/site";
+
+export function getStaticPaths() {
+  return insurancePlans.map((plan) => ({ params: { slug: plan.slug }, props: { plan } }));
+}
+
+const { plan } = Astro.props;
+---
+
+<Base
+  title={plan.title}
+  description={plan.description}
+  path={`/insurance/${plan.slug}/`}
+  keywords={plan.keywords}
+  faq={plan.faqs}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/insurance/">Insurance</a> / {plan.name}</p>
+      <p class="kicker">In-network · {plan.short}</p>
+      <h1>{plan.name} rehab in Orange County</h1>
+      <p class="lede">{plan.intro}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        {plan.body.map((block) => (
+          <>
+            <h2>{block.heading}</h2>
+            <Fragment set:html={block.html} />
+          </>
+        ))}
+        <h2>Plan types we verify</h2>
+        <ul>
+          {plan.planTypes.map((item) => <li>{item}</li>)}
+        </ul>
+        <h2>How people search this</h2>
+        <ul>
+          {plan.searchPhrases.map((item) => <li>{item}</li>)}
+        </ul>
+        <p>{insuranceDisclaimer}</p>
+      </div>
+      <aside>
+        <div class="benefit-card">
+          {plan.short.toUpperCase()} · IN-NETWORK
+          <strong>Verify before you drive</strong>
+          Santa Ana campus · DHCS 300011GP
+        </div>
+        <figure class="photo-frame" style="margin-top:1rem">
+          <img src={campusPhotos[2].src} alt={campusPhotos[2].alt} />
+          <figcaption>Campus courtyard, Santa Ana</figcaption>
+        </figure>
+        <div style="margin-top:1rem">
+          <ContactForm heading="Send the card details" />
+        </div>
+      </aside>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Questions about {plan.name}</h2>
+      <FaqList items={plan.faqs} />
+      <p style="margin-top:1.2rem"><a href="/insurance/">All in-network plans</a> · <a href="/locations/">Southern California locations</a></p>
+    </div>
+  </section>
+  <CtaBand title={`Verify ${plan.short} benefits`} />
+</Base>

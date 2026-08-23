@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+const faq = [
+  { q: "Does insurance cover alcohol detox in Orange County?", a: "Most commercial PPO plans cover medically necessary alcohol withdrawal management at an in-network facility. Alcohol withdrawal can be dangerous; medical detox is a clinical recommendation, not an amenity." },
+];
+---
+
+<Base title="Alcohol Rehab in Orange County" description="Medically supervised alcohol detox and residential treatment in Santa Ana. In-network PPO alcohol rehab for Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE." path="/treatments/alcohol-rehab/" keywords="alcohol rehab Orange County, alcohol detox Santa Ana, in network alcohol treatment Southern California" faq={faq}>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Alcohol rehab</p>
+    <p class="kicker">Treatments</p>
+    <h1>Alcohol rehab in Orange County</h1>
+    <p class="lede">Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care. For adults whose drinking has outrun willpower, work, and home.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <p>Alcohol withdrawal is a medical event. Daily drinkers, people with prior seizures or DTs, and anyone mixing alcohol with benzodiazepines should not treat “detox at home” as a plan. We monitor withdrawal and medicate when the physician orders it, then we move into the clinical work that actually changes the pattern.</p>
+    <p>Related: <a href="/detox/alcohol-detox/">alcohol detox</a>, <a href="/programs/residential/">residential treatment</a>, <a href="/blog/alcohol-detox-orange-county-ppo/">PPO coverage for alcohol detox</a>.</p>
+  </div></section>
+  <CtaBand />
+</Base>

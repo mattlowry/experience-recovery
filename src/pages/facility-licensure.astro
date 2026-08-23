@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base title="Facility Licensure & Accreditation" description="DHCS license 300011GP and Joint Commission accreditation for Experience Recovery Detox & Residential, LLC in Santa Ana, California." path="/facility-licensure/" keywords="DHCS 300011GP, Joint Commission 610069, Experience Recovery license">
+  <section class="page-hero"><div class="wrap">
+    <h1>Facility licensure & accreditation</h1>
+    <p class="lede">Operator: {site.legalName}. Treatment location: {site.street}, {site.city}, {site.state} {site.zip}.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <h2>California DHCS</h2>
+    <p>Our Santa Ana campus is licensed by the California Department of Health Care Services for residential detoxification and treatment (RES-DETOX) and authorized for Incidental Medical Services (IMS).</p>
+    <ul>
+      <li>License number: <strong>{site.dhcsLicense}</strong></li>
+      <li>Scheduled expiration: <strong>{site.dhcsExpires}</strong></li>
+      <li>Additional location on license: {site.additionalStreet}, {site.city}, {site.state} {site.zip}</li>
+    </ul>
+    <p><a href={site.dhcsVerify}>Verify on the DHCS SUD Recovery Treatment Facilities directory</a>.</p>
+    <h2>The Joint Commission</h2>
+    <p>{site.legalName} is accredited by The Joint Commission for behavioral health care (HCO ID {site.jointCommissionHco}).</p>
+    <p>Descriptions of services reflect programs we are licensed and staffed to provide. Availability depends on assessment, medical necessity, and capacity. We do not guarantee outcomes.</p>
+  </div></section>
+</Base>

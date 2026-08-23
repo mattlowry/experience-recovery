@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { campusPhotos, site } from "../../data/site";
+---
+
+<Base
+  title="About Experience Recovery"
+  description="Experience Recovery Detox & Residential, LLC is a Joint Commission–accredited, DHCS-licensed treatment program in Santa Ana, Orange County. In-network PPO care for Southern California."
+  path="/about-us/"
+  keywords="about Experience Recovery, Santa Ana rehab, DHCS 300011GP, Joint Commission HCO 610069"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / About</p>
+      <p class="kicker">About</p>
+      <h1>A treatment program that can be checked</h1>
+      <p class="lede">Adults whose lives are being affected by alcohol, opioids, benzodiazepines, stimulants, and mixed use. Medically supervised detox and residential treatment on a campus you can visit on a map and verify on a DHCS listing.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="prose">
+        <h2>Why this work</h2>
+        <p>Addiction and mental health concerns rarely arrive cleanly. They tangle with grief, trauma, family history, financial stress, and physical illness. People deserve care that takes the whole picture seriously — and that bills the PPO they already pay for.</p>
+        <h2>What we do</h2>
+        <p>Detox, residential treatment, and a family program. Evidence-informed therapies, trauma-aware practice, and medication-assisted treatment when clinically appropriate. Aftercare planning starts on admission, not at discharge.</p>
+        <h2>Licensure</h2>
+        <p>Joint Commission accredited (HCO ID {site.jointCommissionHco}). Licensed by California DHCS as an IMS provider — license {site.dhcsLicense}, expires {site.dhcsExpires}. We use ASAM Criteria for level-of-care decisions.</p>
+        <p><a href="/about-us/our-approach/">Approach</a> · <a href="/about-us/our-campus/">Campus</a> · <a href="/about-us/our-team/">Team</a> · <a href="/facility-licensure/">Full licensure</a></p>
+      </div>
+      <figure class="photo-frame">
+        <img src={campusPhotos[0].src} alt={campusPhotos[0].alt} />
+        <figcaption>{campusPhotos[0].caption}</figcaption>
+      </figure>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { campusPhotos, addressLine } from "../../data/site";
+---
+
+<Base title="Our Campus in Santa Ana" description="See the Experience Recovery campus at 3919 W. Hazard Ave., Santa Ana — real photographs of the Orange County detox and residential environment." path="/about-us/our-campus/" keywords="Experience Recovery campus, Santa Ana rehab photos, Hazard Avenue treatment center" image="/images/campus/experience-recovery-frontdoors1.jpg">
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / Campus</p>
+    <h1>The Santa Ana campus</h1>
+    <p class="lede">{addressLine}. A residential treatment environment in Orange County — courtyard, living rooms, and the outdoor space you see below. These photographs are of this place.</p>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <div class="grid-3">
+      {campusPhotos.map((photo) => (
+        <figure class="photo-frame">
+          <img src={photo.src} alt={photo.alt} width="800" height="600" />
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="prose" style="margin-top:2rem">
+      <p>Minutes from John Wayne Airport for people flying into Orange County. Close enough to the 55, 22, and 405 that Irvine, Anaheim, Huntington Beach, and Long Beach are realistic drives. Far enough from a given neighborhood that some clients can put down the daily emergency long enough to do the work.</p>
+      <p>Basketball and outdoor space exist. So do exit signs and a medical team. Comfort is not the opposite of clinical seriousness.</p>
+    </div>
+  </div></section>
+  <CtaBand />
+</Base>

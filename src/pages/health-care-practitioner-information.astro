@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import { team } from "../data/team";
+
+const licensed = team.filter((m) => m.license);
+---
+
+<Base title="Health Care Practitioner Information" description="California BPC § 680.5 disclosures for licensed practitioners at Experience Recovery — names, license types, numbers, and degrees." path="/health-care-practitioner-information/">
+  <section class="page-hero"><div class="wrap">
+    <h1>Health care practitioner information</h1>
+    <p class="lede">California Business & Professions Code § 680.5 requires licensed health care practitioners who provide information about health care services on this website to disclose name, California license type, and highest academic degree.</p>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <p>Verify licenses: <a href="https://search.dca.ca.gov/">California DCA license search</a>.</p>
+    {licensed.map((m) => (
+      <article class="card" style="margin:1rem 0">
+        <h2>{m.name}</h2>
+        <p>{m.role}</p>
+        <ol>
+          <li>Name and license: {m.name} — {m.license?.type}; no. {m.license?.number}{m.license?.expires ? ` (expires ${m.license.expires})` : ""}.</li>
+          <li>Highest degree: {m.license?.degree}.</li>
+          {m.license?.supervision && <li>{m.license.supervision}</li>}
+        </ol>
+        <p>Board: {m.license?.board}. <a href={`/about-us/our-team/${m.slug}/`}>Team profile</a>.</p>
+      </article>
+    ))}
+    <div class="prose">
+      <h2>Summary</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Role</th><th>License #</th><th>Expiration</th></tr></thead>
+        <tbody>
+          {licensed.map((m) => (
+            <tr>
+              <td>{m.name}</td>
+              <td>{m.role}</td>
+              <td>{m.license?.number}</td>
+              <td>{m.license?.expires ?? "—"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div></section>
+</Base>

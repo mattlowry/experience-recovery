@@ -1,0 +1,29 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CtaBand from "../../../components/CtaBand.astro";
+import { team, departments } from "../../../data/team";
+---
+
+<Base title="Our Team" description="Current Experience Recovery staff — medical, clinical, operations, case management, and behavioral health. Licensed practitioners listed with California credentials." path="/about-us/our-team/" keywords="Experience Recovery team, Rafael Penunuri MD, Lizabeth Schroeder LCSW">
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/about-us/">About</a> / Team</p>
+    <h1>Current staff</h1>
+    <p class="lede">Clinicians, medical personnel, and recovery professionals on this campus. Licensed providers also appear on our <a href="/health-care-practitioner-information/">Health Care Practitioner Information</a> page (California BPC § 680.5). Individual biographies are being updated; roles and licenses below are current.</p>
+  </div></section>
+  <section class="section"><div class="wrap">
+    {departments.map((dept) => (
+      <div style="margin-bottom:2rem">
+        <h2>{dept}</h2>
+        <div class="grid-3">
+          {team.filter((m) => m.department === dept).map((m) => (
+            <article class="card">
+              <h3><a href={`/about-us/our-team/${m.slug}/`}>{m.name}</a></h3>
+              <p>{m.role}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div></section>
+  <CtaBand />
+</Base>

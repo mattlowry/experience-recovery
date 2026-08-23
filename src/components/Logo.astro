@@ -1,0 +1,57 @@
+---
+interface Props {
+  compact?: boolean;
+  light?: boolean;
+}
+const { compact = false, light = false } = Astro.props;
+---
+
+<a class:list={["brand", { compact, light }]} href="/" aria-label="Experience Recovery home">
+  <span class="mark" aria-hidden="true">
+    <svg viewBox="0 0 64 64" width="36" height="36">
+      <rect x="14" y="10" width="8" height="44" fill="currentColor"/>
+      <rect x="42" y="10" width="8" height="44" fill="currentColor"/>
+      <rect x="14" y="10" width="36" height="7" fill="currentColor"/>
+      <rect x="8" y="40" width="48" height="2.4" fill="currentColor" opacity="0.85"/>
+      <rect x="46" y="20" width="4" height="10" fill="#D9782A"/>
+    </svg>
+  </span>
+  <span class="word">
+    <span class="exp">Experience</span>
+    <span class="rec">Recovery</span>
+  </span>
+</a>
+
+<style>
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand.light { color: #f3f6f5; }
+  .mark {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+  .word {
+    display: grid;
+    line-height: 1.05;
+  }
+  .exp {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+  }
+  .rec {
+    font-family: var(--font-body);
+    font-weight: 650;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+  }
+  .compact .exp { font-size: 1rem; }
+  .compact .rec { font-size: 0.6rem; }
+</style>

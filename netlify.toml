@@ -1,0 +1,90 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Preserve existing URLs
+[[redirects]]
+  from = "/programs/inpatient"
+  to = "/programs/residential/"
+  status = 301
+
+[[redirects]]
+  from = "/programs/inpatient/"
+  to = "/programs/residential/"
+  status = 301
+
+[[redirects]]
+  from = "/careers/"
+  to = "/about-us/"
+  status = 302
+
+[[redirects]]
+  from = "/blog/what-is-xanax-1/"
+  to = "/blog/what-is-dual-diagnosis-and-how-does-it-help-people-recover-from-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/what-is-alcoholics-anonymous-2/"
+  to = "/blog/strategies-for-relapse-prevention/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-war-on-drugs/"
+  to = "/blog/in-network-ppo-rehab-southern-california/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/war-on-drugs/"
+  to = "/blog/in-network-ppo-rehab-southern-california/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/side-effects-opioids/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/what-are-the-side-effects-of-opioids/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/people-use-opioids/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/what-kind-of-drugs-are-opioids/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/what-is-opioid-addiction/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/prescription-opioids-addiction/"
+  to = "/blog/signs-opioid-addiction/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/relapse-prevention-strategies/"
+  to = "/blog/strategies-for-relapse-prevention/"
+  status = 301

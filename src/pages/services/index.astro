@@ -1,0 +1,45 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+
+const items = [
+  { href: "/services/cognitive-behavioral-therapy/", title: "Cognitive behavioral therapy", text: "CBT for the thoughts and behaviors that keep use in place — delivered in individual and group settings." },
+  { href: "/services/relapse-prevention/", title: "Relapse prevention", text: "Trigger work and aftercare planning that starts during residential treatment, not the week of discharge." },
+  { href: "/services/holistic-therapy/", title: "Holistic therapy", text: "Movement, mindfulness, nutrition, and time outdoors as supports for medical and clinical work — not a replacement for it." },
+  { href: "/services/first-responders/", title: "First responders track", text: "Treatment that understands shift work, trauma exposure, and the insurance products first-responder families actually carry." },
+];
+---
+
+<Base
+  title="Therapy & Recovery Services in Orange County"
+  description="CBT, relapse prevention, holistic supports, and a first-responders track at Experience Recovery in Santa Ana. Clinical services inside in-network detox and residential care."
+  path="/services/"
+  keywords="CBT rehab Orange County, relapse prevention Santa Ana, holistic therapy addiction treatment"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Services</p>
+      <p class="kicker">Services</p>
+      <h1>What happens inside each level of care</h1>
+      <p class="lede">Clinical services are the work of detox and residential treatment: therapy, case management, medical care, and the groups that structure the day. We use more than one modality because people do not recover in one language.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      {items.map((item) => (
+        <article class="card">
+          <h2><a href={item.href}>{item.title}</a></h2>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>Detox and residential, clinically</h2>
+      <p>At detox, medical staff manage withdrawal and educate you as symptoms change. In residential treatment you work with a case manager, attend daily groups, and have individual therapy. Family systems are addressed when it is clinically timed — not on day one of acute withdrawal.</p>
+      <p>Modalities used on campus include CBT, DBT skills, Seeking Safety, motivational interviewing, and relapse-prevention curricula, always delivered by trained staff. We do not promise a single trademarked method as a cure.</p>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

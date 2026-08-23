@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { locations } from "../../data/locations";
+---
+
+<Base
+  title="Southern California Rehab Locations We Serve"
+  description="In-network drug and alcohol treatment in Santa Ana serving Orange County, Los Angeles, Long Beach, Riverside, and San Diego. Anthem, Blue Shield, United, Aetna, Cigna, Humana, TRICARE."
+  path="/locations/"
+  keywords="Southern California rehab, Orange County drug rehab near me, in network treatment Los Angeles Riverside San Diego"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Locations</p>
+      <p class="kicker">Southern California</p>
+      <h1>One campus. The region we treat from.</h1>
+      <p class="lede">All treatment is delivered at 3919 W. Hazard Ave., Santa Ana, unless a page says otherwise. These pages exist because people search by city and insurance together — “Irvine Anthem rehab,” “Long Beach PPO detox,” “TRICARE near Pendleton.”</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-3">
+      {locations.map((loc) => (
+        <article class="card">
+          <h2><a href={`/locations/${loc.slug}/`}>{loc.name}</a></h2>
+          <p>{loc.county}<br />{loc.drive}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CtaBand />
+</Base>

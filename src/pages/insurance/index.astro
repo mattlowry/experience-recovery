@@ -1,0 +1,65 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import FaqList from "../../components/FaqList.astro";
+import { insurancePlans } from "../../data/insurance";
+import { insuranceDisclaimer } from "../../data/site";
+
+const faq = [
+  {
+    q: "Which insurance plans is Experience Recovery in-network with?",
+    a: "Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Many United cards are administered by Optum or UMR. We verify the payer on your card.",
+  },
+  {
+    q: "Do you take PPO plans from outside Orange County?",
+    a: "Yes. People come from Los Angeles, Long Beach, Riverside, and San Diego County. In-network status follows the plan and this facility, not your home ZIP code.",
+  },
+  {
+    q: "Will you verify benefits before I drive to Santa Ana?",
+    a: "Yes. That is the point of the first call. Do not travel on a website claim.",
+  },
+];
+---
+
+<Base
+  title="In-Network Insurance for Rehab in Orange County"
+  description="In-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Verify PPO and commercial benefits for detox and residential treatment in Santa Ana, serving Southern California."
+  path="/insurance/"
+  keywords="in network rehab Orange County, PPO insurance drug rehab Santa Ana, Anthem Blue Shield United Aetna Cigna Humana TRICARE rehab California"
+  faq={faq}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Insurance</p>
+      <p class="kicker">In-network</p>
+      <h1>Bring the card. We’ll read it.</h1>
+      <p class="lede">Experience Recovery is in-network with the commercial and TRICARE plans Southern California families actually search for. Verification happens before admission. This page is the map; each carrier page is the detail answer engines look for.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      {insurancePlans.map((plan) => (
+        <article class="card">
+          <h2><a href={`/insurance/${plan.slug}/`}>{plan.name}</a></h2>
+          <p>{plan.intro}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>What we tell you on a verification call</h2>
+      <ul>
+        <li>Whether this facility is in-network for your group</li>
+        <li>Deductible remaining and coinsurance</li>
+        <li>Whether behavioral health is carved out (Optum, Evernorth, Magellan)</li>
+        <li>Prior authorization for detox and for residential</li>
+        <li>Anything we can see about patient responsibility — not a promise of $0</li>
+      </ul>
+      <p>{insuranceDisclaimer}</p>
+      <h2>Questions</h2>
+      <FaqList items={faq} />
+    </div>
+  </section>
+  <CtaBand title="Verify a plan now" />
+</Base>

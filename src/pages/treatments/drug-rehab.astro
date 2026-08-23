@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+const faq = [
+  { q: "Is drug rehab in Orange County covered by PPO insurance?", a: "Most commercial PPO plans include a substance use benefit that can cover medically necessary detox and residential treatment at an in-network facility. We are in-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE." },
+  { q: "Do you treat fentanyl and heroin?", a: "Yes. Opioid dependence — including fentanyl, heroin, and prescription opioids — is a core part of our medical detox and residential work. MAT is used when clinically appropriate." },
+];
+---
+
+<Base title="Drug Rehab in Orange County" description="In-network drug rehab in Santa Ana for opioids, stimulants, benzodiazepines, and polysubstance use. Detox and residential treatment for Southern California PPO plans." path="/treatments/drug-rehab/" keywords="drug rehab Orange County, fentanyl detox Santa Ana, in network drug rehab Southern California" faq={faq}>
+  <section class="page-hero"><div class="wrap">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/treatments/">Treatments</a> / Drug rehab</p>
+    <p class="kicker">Treatments</p>
+    <h1>Drug rehab in Orange County</h1>
+    <p class="lede">Evidence-informed drug rehabilitation in Santa Ana, with detox and residential treatment delivered by the same clinical team. Built for the substances people here actually use — including fentanyl — and for the PPO cards they actually carry.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <h2>What this program treats</h2>
+    <p>Opioids (heroin, fentanyl, prescription pain medications), stimulants (cocaine, methamphetamine, prescription stimulants), benzodiazepines, and mixed use. Dual-diagnosis concerns — anxiety, depression, PTSD, bipolar disorder — are assessed in the same admission.</p>
+    <h2>Where people start</h2>
+    <ul>
+      <li><a href="/programs/detox/">Detox</a> when there is physical dependence or withdrawal risk</li>
+      <li><a href="/programs/residential/">Residential</a> for structured clinical work after stabilization</li>
+    </ul>
+    <h2>Insurance</h2>
+    <p>We are in-network with Anthem, Blue Shield of California, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE. Verify before you travel. See <a href="/insurance/">in-network plans</a>.</p>
+  </div></section>
+  <CtaBand />
+</Base>

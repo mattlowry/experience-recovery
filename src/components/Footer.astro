@@ -1,0 +1,61 @@
+---
+import Logo from "./Logo.astro";
+import { site, carriers } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <Logo light />
+      <p style="margin-top:1rem">
+        Drug and alcohol treatment in Orange County, California. In-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE.
+      </p>
+      <p>
+        <a href={site.phoneHref}>{site.phone}</a><br />
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        {site.street}<br />
+        {site.city}, {site.state} {site.zip}
+      </p>
+    </div>
+    <div>
+      <strong>Programs</strong>
+      <p>
+        <a href="/programs/detox/">Detox</a><br />
+        <a href="/programs/residential/">Residential</a><br />
+        <a href="/programs/family/">Family program</a><br />
+        <a href="/treatments/">Treatments</a>
+      </p>
+    </div>
+    <div>
+      <strong>In-network insurance</strong>
+      <p>
+        {carriers.map((c) => (
+          <><a href={`/insurance/${c.slug}/`}>{c.short}</a><br /></>
+        ))}
+        <a href="/insurance/ppo/">PPO plans</a>
+      </p>
+    </div>
+    <div>
+      <strong>Policies</strong>
+      <p>
+        <a href="/privacy/">HIPAA privacy</a><br />
+        <a href="/terms/">Terms of use</a><br />
+        <a href="/website-disclosures/">Website disclosures</a><br />
+        <a href="/facility-licensure/">Licensure & accreditation</a><br />
+        <a href="/health-care-practitioner-information/">Practitioner licenses</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap fineprint">
+    <p>
+      <strong>Licensed by the California Department of Health Care Services.</strong> License <strong>{site.dhcsLicense}</strong>, expires <strong>{site.dhcsExpires}</strong>.
+      <a href={site.dhcsVerify}> Verify on DHCS</a>. Joint Commission accredited (HCO ID {site.jointCommissionHco}).
+    </p>
+    <p class="crisis">
+      If you or someone else is in immediate danger, call <strong>911</strong>. Suicide and crisis support: <strong>988</strong> (call or text). SAMHSA National Helpline: <strong>1-800-662-4357</strong>.
+    </p>
+    <p>
+      Services are provided at our Santa Ana campus unless a page says otherwise. Photographs depict our Orange County treatment environment. This website is informational and does not replace professional medical advice, diagnosis, or treatment. No outcome is guaranteed. We do not offer patient brokering or paid referrals. Website content is not a contract of insurance payment. Coverage varies by plan, medical necessity, and authorization. © {new Date().getFullYear()} {site.legalName}.
+    </p>
+  </div>
+</footer>

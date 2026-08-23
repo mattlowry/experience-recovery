@@ -1,0 +1,162 @@
+---
+import Base from "../layouts/Base.astro";
+import ContactForm from "../components/ContactForm.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FaqList from "../components/FaqList.astro";
+import { site, campusPhotos, carriers, insuranceDisclaimer } from "../data/site";
+
+const faq = [
+  {
+    q: "Is Experience Recovery in-network with Anthem, Blue Shield, United, Aetna, Cigna, Humana, and TRICARE?",
+    a: "Yes. We are in-network with those plans. Coverage still depends on your specific group, medical necessity, and authorization. We verify benefits before admission.",
+  },
+  {
+    q: "Where is the treatment campus?",
+    a: "3919 W. Hazard Ave., Santa Ana, CA 92703, in Orange County. People come from across Southern California — Irvine, Anaheim, Huntington Beach, Long Beach, Los Angeles, Riverside, and San Diego County.",
+  },
+  {
+    q: "Do you offer medically supervised detox and residential treatment?",
+    a: "Yes. Both are delivered on the Santa Ana campus by one team. Detox is withdrawal management. Residential is where the clinical work continues after you are medically stable.",
+  },
+  {
+    q: "Does a PPO cover residential rehab in Orange County?",
+    a: "Most commercial PPO plans include a substance use disorder benefit that can cover medically necessary detox and residential treatment at an in-network facility. We check your card — deductible, coinsurance, and prior auth — before you come in.",
+  },
+];
+---
+
+<Base
+  title="In-Network Drug & Alcohol Treatment in Orange County"
+  description="Experience Recovery is a Joint Commission–accredited detox and residential program in Santa Ana. In-network with Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE PPO plans across Southern California."
+  path="/"
+  keywords="in network rehab Orange County, PPO drug rehab Santa Ana, Anthem Blue Shield United Aetna Cigna Humana TRICARE rehab Southern California, alcohol detox Orange County"
+  faq={faq}
+  image="/images/campus/experience-recovery-frontdoors1.jpg"
+>
+  <section class="hero" style={`--hero: url("${campusPhotos[0].src}")`}>
+    <div class="wrap">
+      <p class="kicker">Santa Ana · Orange County · Southern California</p>
+      <h1>In-network treatment. A campus you can actually verify.</h1>
+      <p class="lede">
+        Confidential drug and alcohol detox and residential care for adults. We bill Anthem, Blue Shield, UnitedHealthcare, Aetna, Cigna, Humana, and TRICARE as an in-network facility — then we tell you what your plan will and will not cover.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={site.phoneHref}>Call {site.phone}</a>
+        <a class="btn btn-ghost" href="/insurance/" style="color:#fff;border-color:#8aa0a6">Verify a PPO card</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">Insurance first</p>
+      <h2>If the card says PPO, start here</h2>
+      <p class="lede">People in Southern California lose days calling programs that “take insurance” and then quote out-of-network rates. We are in-network with the plans below. Verification is a phone call, not a form letter.</p>
+      <div class="logo-row" style="margin:1.4rem 0 1rem">
+        {carriers.map((c) => (
+          <a class="chip" href={`/insurance/${c.slug}/`}>{c.name}</a>
+        ))}
+        <a class="chip" href="/insurance/ppo/">PPO & commercial plans</a>
+      </div>
+      <p class="crisis">{insuranceDisclaimer}</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker">What we treat</p>
+        <h2>A starting point — not a diagnosis</h2>
+        <p>The right level of care depends on medical history, what you’re using, and what’s going on at home and at work.</p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Alcohol</h3>
+            <p>Daily drinking to physical dependence, with medically supervised withdrawal when needed.</p>
+            <a href="/treatments/alcohol-rehab/">Alcohol rehab</a>
+          </article>
+          <article class="card">
+            <h3>Opioids</h3>
+            <p>Heroin, fentanyl, and prescription opioid dependence. Detox under medical supervision; MAT when clinically appropriate.</p>
+            <a href="/treatments/drug-rehab/">Drug rehab</a>
+          </article>
+          <article class="card">
+            <h3>Stimulants</h3>
+            <p>Cocaine, methamphetamine, and prescription stimulant misuse — treated with any co-occurring mental health concerns.</p>
+            <a href="/treatments/drug-rehab/">Drug rehab</a>
+          </article>
+          <article class="card">
+            <h3>Polysubstance</h3>
+            <p>More than one substance needs a coordinated detox and treatment plan. That is routine here, not an exception.</p>
+            <a href="/treatments/">All treatments</a>
+          </article>
+        </div>
+      </div>
+      <aside>
+        <div class="benefit-card">
+          MEMBER · PPO / COMMERCIAL
+          <strong>In-network verification</strong>
+          Anthem · Blue Shield · UHC<br />
+          Aetna · Cigna · Humana · TRICARE
+          <p style="margin:1rem 0 0;font-family:var(--font-body);letter-spacing:0;font-size:0.92rem;color:#dce6ea">
+            Have the card ready. We check eligibility, network status, deductible, and prior authorization before you travel to Santa Ana.
+          </p>
+        </div>
+        <figure class="photo-frame" style="margin-top:1.2rem">
+          <img src={campusPhotos[1].src} alt={campusPhotos[1].alt} width="800" height="600" />
+          <figcaption>{campusPhotos[1].caption} — real campus photograph</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">What to expect</p>
+      <h2>From the first call to campus</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>The first call</h3>
+          <p>You’ll talk to a real person. We’ll ask about the situation and the insurance card, and we’ll help you figure out the right level of care — even if that’s somewhere other than here.</p>
+        </article>
+        <article class="card">
+          <h3>Verify benefits</h3>
+          <p>We verify in-network benefits before you commit. Deductible, coinsurance, carve-outs (Optum, Evernorth), and authorization — in that order.</p>
+        </article>
+        <article class="card">
+          <h3>Arrival & intake</h3>
+          <p>Meet with a clinician for an assessment. If detox is appropriate, that begins under medical supervision the same day when a bed is available.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <p class="kicker">The campus</p>
+      <h2>Photographs of this place</h2>
+      <p class="lede">These are pictures of our Santa Ana campus — not stock interiors from another state.</p>
+      <div class="grid-3" style="margin-top:1.4rem">
+        {campusPhotos.slice(0, 6).map((photo) => (
+          <figure class="photo-frame">
+            <img src={photo.src} alt={photo.alt} width="720" height="540" />
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p style="margin-top:1rem"><a href="/about-us/our-campus/">See the full campus gallery</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker">Answers</p>
+        <h2>What people ask before they call</h2>
+        <FaqList items={faq} />
+      </div>
+      <ContactForm heading="Send a confidential message" />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

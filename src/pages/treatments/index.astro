@@ -1,0 +1,46 @@
+---
+import Base from "../../layouts/Base.astro";
+import CtaBand from "../../components/CtaBand.astro";
+
+const tracks = [
+  { href: "/treatments/drug-rehab/", title: "Drug rehab", text: "Opioids, stimulants, benzodiazepines, and polysubstance use. Detox and residential under one team." },
+  { href: "/treatments/alcohol-rehab/", title: "Alcohol rehab", text: "Medically supervised alcohol detox, then residential treatment with seizure-risk monitoring and integrated mental health care." },
+  { href: "/treatments/eating-disorder-treatment/", title: "Eating disorder treatment", text: "For clients whose disordered eating co-occurs with substance use — integrated, not a standalone ED hospital." },
+  { href: "/treatments/lgbtq-drug-rehab/", title: "LGBTQ drug rehab", text: "LGBTQ-affirming rehabilitation. Trauma-informed clinical work in an environment built for safety." },
+];
+---
+
+<Base
+  title="Addiction Treatments in Orange County"
+  description="Drug rehab, alcohol rehab, eating-disorder-informed care, and LGBTQ-affirming treatment in Santa Ana. In-network PPO detox and residential programs for Southern California."
+  path="/treatments/"
+  keywords="addiction treatments Orange County, drug rehab Santa Ana, alcohol rehab Orange County, LGBTQ rehab California"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumbs"><a href="/">Home</a> / Treatments</p>
+      <p class="kicker">Treatments</p>
+      <h1>What you’re recovering from</h1>
+      <p class="lede">Specialized tracks organized by substance and population. Levels of care — detox, residential, family — live under Programs. Insurance lives under Insurance. This page is the clinical starting map.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      {tracks.map((t) => (
+        <article class="card">
+          <h2><a href={t.href}>{t.title}</a></h2>
+          <p>{t.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap prose">
+      <h2>How treatment is actually delivered</h2>
+      <p>Whatever brings someone in, the work is evidence-informed and trauma-aware: cognitive-behavioral therapy, motivational interviewing, group and family therapy, and medication-assisted treatment when clinically appropriate. Co-occurring anxiety, depression, PTSD, and bipolar concerns are treated in the same episode of care.</p>
+      <p>We are Joint Commission–accredited and licensed by California DHCS (300011GP) for residential detoxification and treatment, with Incidental Medical Services for on-site medical care.</p>
+      <p>Looking for a level of care instead of a substance? See <a href="/programs/">programs</a>. Looking for a PPO? See <a href="/insurance/">in-network insurance</a>.</p>
+    </div>
+  </section>
+  <CtaBand />
+</Base>

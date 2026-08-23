@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, addressLine } from "../data/site";
+---
+
+<Base title="HIPAA Privacy Policy" description="Notice of Privacy Practices for Experience Recovery Detox & Residential, LLC — how we use and disclose protected health information." path="/privacy/">
+  <section class="page-hero"><div class="wrap">
+    <h1>HIPAA privacy policy</h1>
+    <p class="lede">This is our Notice of Privacy Practices for protected health information (PHI) and medical records — not a general marketing-cookie policy.</p>
+  </div></section>
+  <section class="section"><div class="wrap prose">
+    <p><strong>{site.legalName}</strong> · {addressLine} · {site.phone} · {site.email}</p>
+    <p>We maintain PHI in accordance with HIPAA (45 C.F.R. Part 164). We use and disclose PHI for treatment, payment, and healthcare operations. Other uses generally require your authorization. You have rights to access, request amendment, request an accounting of disclosures, request restrictions, and file a complaint with us or with the U.S. Department of Health and Human Services.</p>
+    <p>Website contact forms are for inquiries only and are not a substitute for emergency care. Submitting a form does not establish a clinician-patient relationship. Breach notification follows applicable federal and California law.</p>
+    <p>To request records or ask a privacy question, email {site.email} or call admissions. Do not email sensitive clinical details from an unsecured account if another method is available.</p>
+    <p>See also <a href="/website-disclosures/">website disclosures</a>.</p>
+  </div></section>
+</Base>

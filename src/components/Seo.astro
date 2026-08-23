@@ -1,0 +1,146 @@
+---
+import { site, addressLine } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  type?: "website" | "article";
+  image?: string;
+  keywords?: string;
+  faq?: { q: string; a: string }[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  path = "/",
+  type = "website",
+  image = "/images/campus/experience-recovery-frontdoors1.jpg",
+  keywords,
+  faq = [],
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(path, site.url).href;
+const imageUrl = new URL(image, site.url).href;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+
+const org = {
+  "@context": "https://schema.org",
+  "@type": ["MedicalBusiness", "MedicalClinic", "Organization"],
+  name: site.name,
+  legalName: site.legalName,
+  url: site.url,
+  telephone: site.phone,
+  email: site.email,
+  image: imageUrl,
+  logo: new URL("/images/brand/mark.png", site.url).href,
+  description: site.tagline,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.street,
+    addressLocality: site.city,
+    addressRegion: site.state,
+    postalCode: site.zip,
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.latitude,
+    longitude: site.longitude,
+  },
+  areaServed: [
+    "Orange County",
+    "Southern California",
+    "Los Angeles County",
+    "Riverside County",
+    "San Diego County",
+  ],
+  medicalSpecialty: ["Addiction Medicine", "Substance Abuse Treatment"],
+  availableService: [
+    { "@type": "MedicalTherapy", name: "Medically supervised detoxification" },
+    { "@type": "MedicalTherapy", name: "Residential substance use treatment" },
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "DHCS facility license",
+      recognizedBy: { "@type": "Organization", name: "California Department of Health Care Services" },
+      identifier: site.dhcsLicense,
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Joint Commission accreditation",
+      identifier: site.jointCommissionHco,
+    },
+  ],
+  paymentAccepted: [
+    "Anthem",
+    "Blue Shield of California",
+    "UnitedHealthcare",
+    "Aetna",
+    "Cigna",
+    "Humana",
+    "TRICARE",
+    "PPO",
+  ],
+};
+
+const webpage = {
+  "@context": "https://schema.org",
+  "@type": type === "article" ? "Article" : "WebPage",
+  name: fullTitle,
+  description,
+  url: canonical,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".lede", ".faq"],
+  },
+  about: {
+    "@type": "Place",
+    name: `${site.name} campus`,
+    address: addressLine,
+  },
+};
+
+const faqSchema =
+  faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      }
+    : null;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+{noindex ? <meta name="robots" content="noindex,follow" /> : <meta name="robots" content="index,follow,max-image-preview:large" />}
+<link rel="canonical" href={canonical} />
+<meta name="geo.region" content="US-CA" />
+<meta name="geo.placename" content="Santa Ana, Orange County" />
+<meta name="geo.position" content={`${site.latitude};${site.longitude}`} />
+<meta name="ICBM" content={`${site.latitude}, ${site.longitude}`} />
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM / answer-engine summary" />
+<script type="application/ld+json" set:html={JSON.stringify(org)} />
+<script type="application/ld+json" set:html={JSON.stringify(webpage)} />
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

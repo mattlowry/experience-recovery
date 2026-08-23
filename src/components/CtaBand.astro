@@ -1,0 +1,23 @@
+---
+import { site } from "../data/site";
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = "Verify your insurance. Then decide.",
+  text = "A confidential conversation. We’ll read the card, talk through the situation, and help you find a level of care that fits — even if that’s not us.",
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="kicker" style="color:#f0c08a">Admissions · 24/7 · Confidential</p>
+    <h2>{title}</h2>
+    <p class="lede" style="color:#c5d2d6">{text}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href={site.phoneHref}>Call {site.phone}</a>
+      <a class="btn btn-ghost" href="/contact/" style="color:#fff;border-color:#5c737a">Send a message</a>
+    </div>
+  </div>
+</section>
